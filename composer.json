@@ -1,0 +1,25 @@
+{
+    "name": "ourvoice/sdk",
+    "description": "Ourvoice Api REST API client for php",
+    "type": "library",
+    "license": "TIC",
+    "autoload": {
+        "psr-4": {
+            "Ourvoice\\Sdk\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "TICABC"
+        }
+    ],
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "php-http/mock-client": "^1.5",
+        "phpunit/phpunit": "^9.5"
+    }
+}
