@@ -31,9 +31,9 @@ class ContactTest extends BaseTest
             "href": "https://staging.getourvoice.com/api/v1/contacts/61afc0531573b08ddbe36e1c85602827",
             "first_name": "John",
             "last_name": "Doe",
-            "phone_number": "Customfield1",
-            "langue": "Customfield2",
-            "custom_fields": "Customfield3",
+            "phone_number": "31612345678",
+            "langue": "fon",
+            "custom_fields": "Customfield2",
             "account_id": "e8077d803532c0b5937c639b60216938"
             "createdDatetime": "2016-04-29T09:42:26+00:00",
             "updatedDatetime": "2016-04-29T09:42:26+00:00"
