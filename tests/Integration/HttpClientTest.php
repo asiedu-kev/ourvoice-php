@@ -28,9 +28,7 @@ class HttpClientTest extends BaseTest
         new HttpClient(Client::ENDPOINT, 0);
     }
 
-    /**
-     * Tests a boundary condition (timeout == 1)
-     */
+    
     public function testHttpClientValidTimeoutBoundary(): void
     {
         new HttpClient(Client::ENDPOINT, 1);
@@ -38,9 +36,7 @@ class HttpClientTest extends BaseTest
         $this->doAssertionToNotBeConsideredRiskyTest();
     }
 
-    /**
-     * Tests a boundary condition (connectionTimeout == 0)
-     */
+
     public function testHttpClientValidConnectionTimeoutBoundary(): void
     {
         new HttpClient(Client::ENDPOINT, 10, 0);
@@ -48,9 +44,7 @@ class HttpClientTest extends BaseTest
         $this->doAssertionToNotBeConsideredRiskyTest();
     }
 
-    /**
-     * Test that requests can only be made when there is an Authentication set
-     */
+  
     public function testHttpClientWithoutAuthenticationException(): void
     {
         $this->expectException(AuthenticateException::class);
@@ -59,9 +53,7 @@ class HttpClientTest extends BaseTest
         $client->performHttpRequest('foo', 'bar');
     }
 
-    /**
-     * Test that we can set and get the httpOptions
-     */
+   
     public function testHttpClientWithHttpOptions(): void
     {
         $client = new HttpClient(Client::ENDPOINT);

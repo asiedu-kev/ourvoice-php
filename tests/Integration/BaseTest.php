@@ -34,15 +34,11 @@ class BaseTest extends TestCase
     {
         parent::setUp();
 
-        $this->mockClient = $this->getMockBuilder(HttpClient::class)->setConstructorArgs(["fake.messagebird.dev"])->getMock();
+        $this->mockClient = $this->getMockBuilder(HttpClient::class)->setConstructorArgs(["https://staging.getourvoice.com"])->getMock();
         $this->client = new Client('YOUR_ACCESS_KEY', $this->mockClient);
     }
 
-    /**
-     * Prevents a test that performs no assertions from being considered risky.
-     * The doesNotPerformAssertions annotation is not available in earlier PHPUnit
-     * versions, and hence can not be used.
-     */
+    
     protected function doAssertionToNotBeConsideredRiskyTest(): void
     {
         static::assertTrue(true);
