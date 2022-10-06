@@ -3,7 +3,7 @@
 namespace Tests\Integration;
 
 use Ourvoice\Sdk\Common\ResponseError;
-use Ourvoice\Sdk\Exceptions\MessageBirdException;
+use Ourvoice\Sdk\Exceptions\OurvoiceException;
 
 class ResponseErrorTest extends BaseTest
 {
@@ -24,8 +24,8 @@ class ResponseErrorTest extends BaseTest
     {
         try {
             new ResponseError(json_decode($json,null, 512, \JSON_THROW_ON_ERROR));
-        } catch (MessageBirdException | \JsonException $e) {
-            // Expected: we want the error message.
+        } catch (OurvoiceException | \JsonException $e) {
+        
             return $e->getMessage();
         }
 
