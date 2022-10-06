@@ -25,9 +25,7 @@ class Base
     
     protected $object;
 
-    /**
-     * @var Objects\MessageResponse
-     */
+    
     protected $responseObject;
 
     public function __construct(HttpClient $httpClient)
@@ -64,7 +62,7 @@ class Base
         $this->object = $object;
     }
 
-    public function getResponseObject(): Objects\MessageResponse
+    public function getResponseObject()
     {
         return $this->responseObject;
     }
@@ -77,19 +75,7 @@ class Base
         $this->responseObject = $responseObject;
     }
 
-    /**
-     * @no-named-arguments
-     *
-     * @param mixed $object
-     * @param array|null $query
-     *
-     * @return Objects\Balance|Objects\Conversation\Conversation|Objects\Hlr|Objects\Lookup|Objects\MessageResponse|Objects\Verify|Objects\VoiceMessage|null
-     *
-     * @throws Exceptions\AuthenticateException
-     * @throws Exceptions\HttpException
-     * @throws Exceptions\BalanceException
-     * @throws \JsonException
-     */
+ 
     public function create($object, ?array $query = null)
     {
         $body = json_encode($object, \JSON_THROW_ON_ERROR);
@@ -102,15 +88,7 @@ class Base
         return $this->processRequest($body);
     }
 
-    /**
-     * @param string|null $body
-     * @return Objects\Balance|Objects\Conversation\Conversation|Objects\Hlr|Objects\Lookup|Objects\Message|Objects\Verify|Objects\VoiceMessage|Objects\MessageResponse|null
-     *
-     * @throws Exceptions\AuthenticateException
-     * @throws Exceptions\BalanceException
-     * @throws Exceptions\RequestException
-     * @throws Exceptions\ServerException
-     */
+
     public function processRequest(?string $body)
     {
         if ($body === null) {
@@ -143,16 +121,7 @@ class Base
         return $this->object->loadFromStdclass($body);
     }
 
-    /**
-     * @param array|null $parameters
-     * @return Objects\Balance|Objects\BaseList|Objects\Conversation\Conversation|Objects\Hlr|Objects\Lookup|Objects\Message|Objects\Verify|Objects\VoiceMessage|null
-     * @throws Exceptions\AuthenticateException
-     * @throws Exceptions\BalanceException
-     * @throws Exceptions\HttpException
-     * @throws Exceptions\RequestException
-     * @throws Exceptions\ServerException
-     * @throws \JsonException
-     */
+   
     public function getList(?array $parameters = [])
     {
         [$status, , $body] = $this->httpClient->performHttpRequest(
@@ -179,7 +148,7 @@ class Base
             }
 
             foreach ($items as $item) {
-                /** @psalm-suppress UndefinedClass */
+                
                 $object = new $objectName($this->httpClient);
 
                 $message = $object->loadFromArray($item);
@@ -192,19 +161,7 @@ class Base
         return $this->processRequest($body);
     }
 
-    /**
-     * @no-named-arguments
-     *
-     * @param mixed $id
-     *
-     * @return Objects\Balance|Objects\Conversation\Conversation|Objects\Hlr|Objects\Lookup|Objects\Message|Objects\Verify|Objects\VoiceMessage|null
-     *
-     * @throws Exceptions\AuthenticateException
-     * @throws Exceptions\BalanceException
-     * @throws Exceptions\HttpException
-     * @throws Exceptions\RequestException
-     * @throws Exceptions\ServerException
-     */
+   
     public function read($id = null)
     {
         $resourceName = $this->resourceName . (($id) ? '/' . $id : null);
@@ -212,17 +169,7 @@ class Base
         return $this->processRequest($body);
     }
 
-    /**
-     * @param mixed $id
-     *
-     * @return Objects\Balance|Objects\Conversation\Conversation|Objects\Hlr|Objects\Lookup|Objects\Message|Objects\Verify|Objects\VoiceMessage|null|true
-     *
-     * @throws Exceptions\AuthenticateException
-     * @throws Exceptions\BalanceException
-     * @throws Exceptions\HttpException
-     * @throws Exceptions\RequestException
-     * @throws Exceptions\ServerException
-     */
+  
     public function delete($id)
     {
         $resourceName = $this->resourceName . '/' . $id;
@@ -235,20 +182,7 @@ class Base
         return $this->processRequest($body);
     }
 
-    /**
-     * @param mixed $object
-     * @param mixed $id
-     *
-     * @return Objects\Balance|Objects\Conversation\Conversation|Objects\Hlr|Objects\Lookup|Objects\Message|Objects\Verify|Objects\VoiceMessage|null ->object
-     *
-     * @throws Exceptions\AuthenticateException
-     * @throws Exceptions\BalanceException
-     * @throws Exceptions\HttpException
-     * @throws Exceptions\RequestException
-     * @throws Exceptions\ServerException
-     * @throws \JsonException
-     * @internal param array $parameters
-     */
+    
     public function update($object, $id)
     {
         $objVars = get_object_vars($object);
