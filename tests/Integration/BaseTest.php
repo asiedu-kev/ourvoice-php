@@ -20,7 +20,7 @@ class BaseTest extends TestCase
     public function testClientConstructor(): void
     {
         $ourvoiceSdk = new Client('YOUR_ACCESS_KEY');
-        self::assertInstanceOf(Balance::class, $ourvoiceSdk->balance);
+        self::assertInstanceOf(Balance::class, $ourvoiceSdk->balances);
         
     }
 
@@ -34,7 +34,7 @@ class BaseTest extends TestCase
     {
         parent::setUp();
 
-        $this->mockClient = $this->getMockBuilder(HttpClient::class)->setConstructorArgs(["https://staging.getourvoice.com"])->getMock();
+        $this->mockClient = $this->getMockBuilder(HttpClient::class)->setConstructorArgs([""])->getMock();
         $this->client = new Client('YOUR_ACCESS_KEY', $this->mockClient);
     }
 

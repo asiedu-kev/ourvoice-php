@@ -1,40 +1,40 @@
 <?php
 
-namespace Tests\Integration\Balance;
+namespace Tests\Integration\ApiKey;
 
 use Ourvoice\Sdk\Exceptions\ServerException;
 use  Ourvoice\Sdk\Common\HttpClient;
 use Tests\Integration\BaseTest;
 
-class BalanceTest extends BaseTest
+class ApiKeyTest extends BaseTest
 {
-    public function testListBalance(): void
+    public function testListApiKey(): void
     {
         $this->expectException(ServerException::class);
-        $this->mockClient->expects(self::once())->method('performHttpRequest')->with("GET", 'balances', null, null);
-        $this->client->balances->read();
+        $this->mockClient->expects(self::once())->method('performHttpRequest')->with("GET", 'api-keys', null, null);
+        $this->client->apikeys->read();
     }
 
-    public function testViewBalance(): void
+    public function testViewApiKey(): void
     {
         $this->expectException(ServerException::class);
         $this->mockClient->expects(self::once())->method('performHttpRequest')->with(
             "GET",
-            'balances/balance_id',
+            'api-keys/apikey_id',
             null,
             null
         );
-        $this->client->balances->read("balance_id");
+        $this->client->apikeys->read("apikey_id");
     }
-    public function testDeleteBalance(): void
+    public function testDeleteApiKey(): void
     {
         $this->expectException(ServerException::class);
         $this->mockClient->expects(self::once())->method('performHttpRequest')->with(
             "DELETE",
-            'balances/balance_id',
+            'api-keys/apikey_id',
             null,
             null
         );
-        $this->client->balances->delete("balance_id");
+        $this->client->apikeys->delete("apikey_id");
     }
 }

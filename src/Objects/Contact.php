@@ -13,8 +13,6 @@ class Contact extends Base
 {
     
     public $first_name;
-   
-    public $firstName;
     
     public $last_name;
     

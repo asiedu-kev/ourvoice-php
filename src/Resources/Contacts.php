@@ -15,10 +15,7 @@ use Ourvoice\Sdk\Resources\Messages;
  */
 class Contacts extends Base
 {
-    /**
-     * @var Messages
-     */
-    private $messagesObject;
+    
 
     public function __construct(Common\HttpClient $httpClient)
     {
@@ -28,20 +25,7 @@ class Contacts extends Base
         parent::__construct($httpClient);
     }
 
-    /**
-     * @param mixed $object
-     * @param mixed $id
-     *
-     * @return Objects\Balance|Objects\Conversation\Conversation|Objects\Hlr|Objects\Lookup|Objects\Message|Objects\Verify|Objects\VoiceMessage|null ->object
-     *
-     * @throws \JsonException
-     * @throws Exceptions\AuthenticateException
-     * @throws Exceptions\HttpException
-     * @throws Exceptions\RequestException
-     * @throws Exceptions\ServerException
-     *
-     * @internal param array $parameters
-     */
+   
     public function update($object, $id)
     {
         $objVars = get_object_vars($object);

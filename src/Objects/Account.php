@@ -17,5 +17,5 @@ class Account extends Base
 
     public $user_id;
 
-    protected $id;
+    public $id;
 }

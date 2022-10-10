@@ -28,7 +28,75 @@ class Client
     /**
      * @var Resources\Balance
      */
-    public $balance;
+    public $balances;
+
+     /**
+     * @var Resources\Account
+     */
+    public $accounts;
+    /**
+     * @var Resources\Scope
+     */
+    public $scopes;
+    /**
+     * @var Resources\Role
+     */
+    public $roles;
+
+    /**
+     * @var Resources\Action
+     */
+    public $actions;
+    
+    /**
+     * @var Resources\Condition
+     */
+    public $conditions;
+
+    /**
+     * @var Resources\ActionCondition
+     */
+    public $action_conditions;
+
+    /**
+     * @var Resources\ApiKey
+     */
+    public $apikeys;
+    
+    /**
+     * @var Resources\Campaign
+     */
+    public $campaigns;
+
+    /**
+     * @var Resources\Invitation
+     */
+    public $invitations;
+
+    /**
+     * @var Resources\Media
+     */
+    public $medias;
+
+    /**
+     * @var Resources\Message
+     */
+    public $messages;
+
+      /**
+     * @var Resources\PaymentMethod
+     */
+    public $payment_methods;
+    
+      /**
+     * @var Resources\Type
+     */
+    public $types;
+
+      /**
+     * @var Resources\User
+     */
+    public $users;
     
     protected $endpoint = self::ENDPOINT;
     /**
@@ -56,10 +124,23 @@ class Client
         if ($accessKey !== null) {
             $this->setAccessKey($accessKey);
         }
-        $this->balance = new Resources\Balance($this->httpClient);
+        $this->balances = new Resources\Balance($this->httpClient);
+        $this->accounts = new Resources\Account($this->httpClient);
         $this->contacts = new Resources\Contacts($this->httpClient);
         $this->groups = new Resources\Groups($this->httpClient);
-        
+        $this->scopes = new Resources\Scope($this->httpClient);
+        $this->roles = new Resources\Role($this->httpClient);
+        $this->actions = new Resources\Action($this->httpClient);
+        $this->conditions = new Resources\Condition($this->httpClient);
+        $this->action_conditions = new Resources\ActionCondition($this->httpClient);
+        $this->apikeys = new Resources\ApiKey($this->httpClient);
+        $this->campaigns = new Resources\Campaign($this->httpClient);
+        $this->invitations = new Resources\Invitation($this->httpClient);
+        $this->medias = new Resources\Media($this->httpClient);
+        $this->messages = new Resources\Message($this->httpClient);
+        $this->payment_methods = new Resources\PaymentMethod($this->httpClient);
+        $this->types = new Resources\Type($this->httpClient);
+        $this->users = new Resources\User($this->httpClient);
     }
 
     private function getPhpVersion(): string

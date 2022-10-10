@@ -6,16 +6,16 @@ use Ourvoice\Sdk\Common;
 use Ourvoice\Sdk\Objects;
 
 /**
- * Class Account
+ * Class ActionCondition
  *
  * @package Ourvoice\Sdk\Resources
  */
-class Account extends Base
+class ActionCondition extends Base
 {
     public function __construct(Common\HttpClient $httpClient)
     {
-        $this->object = new Objects\Account();
-        $this->setResourceName('accounts');
+        $this->object = new Objects\ActionCondition();
+        $this->setResourceName('action-conditions');
 
         parent::__construct($httpClient);
     }

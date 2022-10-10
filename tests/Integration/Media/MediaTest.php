@@ -1,40 +1,40 @@
 <?php
 
-namespace Tests\Integration\Balance;
+namespace Tests\Integration\Media;
 
 use Ourvoice\Sdk\Exceptions\ServerException;
 use  Ourvoice\Sdk\Common\HttpClient;
 use Tests\Integration\BaseTest;
 
-class BalanceTest extends BaseTest
+class MediaTest extends BaseTest
 {
-    public function testListBalance(): void
+    public function testListMedia(): void
     {
         $this->expectException(ServerException::class);
-        $this->mockClient->expects(self::once())->method('performHttpRequest')->with("GET", 'balances', null, null);
-        $this->client->balances->read();
+        $this->mockClient->expects(self::once())->method('performHttpRequest')->with("GET", 'medias', null, null);
+        $this->client->medias->read();
     }
 
-    public function testViewBalance(): void
+    public function testViewMedia(): void
     {
         $this->expectException(ServerException::class);
         $this->mockClient->expects(self::once())->method('performHttpRequest')->with(
             "GET",
-            'balances/balance_id',
+            'medias/media_id',
             null,
             null
         );
-        $this->client->balances->read("balance_id");
+        $this->client->medias->read("media_id");
     }
-    public function testDeleteBalance(): void
+    public function testDeleteMedia(): void
     {
         $this->expectException(ServerException::class);
         $this->mockClient->expects(self::once())->method('performHttpRequest')->with(
             "DELETE",
-            'balances/balance_id',
+            'medias/media_id',
             null,
             null
         );
-        $this->client->balances->delete("balance_id");
+        $this->client->medias->delete("media_id");
     }
 }

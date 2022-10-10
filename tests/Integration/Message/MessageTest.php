@@ -1,40 +1,40 @@
 <?php
 
-namespace Tests\Integration\Balance;
+namespace Tests\Integration\Message;
 
 use Ourvoice\Sdk\Exceptions\ServerException;
 use  Ourvoice\Sdk\Common\HttpClient;
 use Tests\Integration\BaseTest;
 
-class BalanceTest extends BaseTest
+class MessageTest extends BaseTest
 {
-    public function testListBalance(): void
+    public function testListMessage(): void
     {
         $this->expectException(ServerException::class);
-        $this->mockClient->expects(self::once())->method('performHttpRequest')->with("GET", 'balances', null, null);
-        $this->client->balances->read();
+        $this->mockClient->expects(self::once())->method('performHttpRequest')->with("GET", 'messages', null, null);
+        $this->client->messages->read();
     }
 
-    public function testViewBalance(): void
+    public function testViewMessage(): void
     {
         $this->expectException(ServerException::class);
         $this->mockClient->expects(self::once())->method('performHttpRequest')->with(
             "GET",
-            'balances/balance_id',
+            'messages/message_id',
             null,
             null
         );
-        $this->client->balances->read("balance_id");
+        $this->client->messages->read("message_id");
     }
-    public function testDeleteBalance(): void
+    public function testDeleteMessage(): void
     {
         $this->expectException(ServerException::class);
         $this->mockClient->expects(self::once())->method('performHttpRequest')->with(
             "DELETE",
-            'balances/balance_id',
+            'messages/message_id',
             null,
             null
         );
-        $this->client->balances->delete("balance_id");
+        $this->client->messages->delete("message_id");
     }
 }
