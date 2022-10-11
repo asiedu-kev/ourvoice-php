@@ -95,6 +95,22 @@ class ActionConditionTest extends BaseTest
         );
         $this->client->action_conditions->read("action_condition_id");
     }
+    public function testUpdateActionCondition(): void
+    {
+        $this->mockClient
+            ->expects($this->exactly(1))->method('performHttpRequest')
+            ->withConsecutive(
+                ['PUT', 'action-conditions/action_condition_id', null, '{"min_value":"2"}'],
+               
+            )
+            ->willReturn([200, '', '{}']);
+
+        $action_condition = new ActionCondition();
+        $action_condition->min_value = "2" ;
+        $this->client->action_conditions->update($action_condition, 'action_condition_id');
+
+    }
+
     public function testDeleteActionCondition(): void
     {
         $this->expectException(ServerException::class);

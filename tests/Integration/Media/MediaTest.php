@@ -58,6 +58,23 @@ class MediaTest extends BaseTest
         );
         $this->client->medias->read("media_id");
     }
+
+    public function testUpdateMedia(): void
+    {
+        $this->mockClient
+            ->expects($this->exactly(1))->method('performHttpRequest')
+            ->withConsecutive(
+                ['PUT', 'medias/media_id', null, '{"name":"archived"}'],
+               
+            )
+            ->willReturn([200, '', '{}']);
+
+        $media = new Media();
+        $media->name = "archived" ;
+        $this->client->medias->update($media, 'media_id');
+
+    }
+
     public function testDeleteMedia(): void
     {
         $this->expectException(ServerException::class);

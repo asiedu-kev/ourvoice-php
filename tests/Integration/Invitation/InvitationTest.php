@@ -58,6 +58,23 @@ class InvitationTest extends BaseTest
         );
         $this->client->invitations->read("invitation_id");
     }
+
+    public function testUpdateInvitation(): void
+    {
+        $this->mockClient
+            ->expects($this->exactly(1))->method('performHttpRequest')
+            ->withConsecutive(
+                ['PUT', 'invitations/invitation_id', null, '{"email":"gagle@gmail.com"}'],
+               
+            )
+            ->willReturn([200, '', '{}']);
+
+        $invitation = new Invitation();
+        $invitation->email = "gagle@gmail.com" ;
+        $this->client->invitations->update($invitation, 'invitation_id');
+
+    }
+
     public function testDeleteInvitation(): void
     {
         $this->expectException(ServerException::class);

@@ -59,6 +59,21 @@ class GroupTest extends BaseTest
         );
         $this->client->groups->read("group_id");
     }
+    public function testUpdateGroup(): void
+    {
+        $this->mockClient
+            ->expects($this->exactly(1))->method('performHttpRequest')
+            ->withConsecutive(
+                ['PUT', 'groups/group_id', null, '{"name":"gagle"}'],
+               
+            )
+            ->willReturn([200, '', '{}']);
+
+        $group = new Group();
+        $group->name = "gagle" ;
+        $this->client->groups->update($group, 'group_id');
+
+    }
 
     public function testDeleteGroup(): void
     {

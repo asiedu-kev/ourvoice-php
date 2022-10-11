@@ -72,32 +72,6 @@ class TypeTest extends BaseTest
         $this->client->types->read("type_id");
     }
 
-    /*public function testUpdateType(): void
-    {
-        $scope = new Scope();
-        $scope->id = "61afc0531573b08ddbe36e1c85602827";
-        $type = new Type();
-        $type->name = "John";
-        $type->description = "Johnhg";
-        $type->scope_id = $scope->id;
-
-        $this->mockClient
-            ->expects($this->once())
-            ->method('performHttpRequest')
-            ->with(
-                'PUT',
-                'types/type_id',
-                null,
-                '{"name":"Johns","description":"Johnhg","scope_id":"$scope->id"}'
-            )
-            ->willReturn([
-                204,
-                '',
-                '{"name":"John code"}'
-            ]);
-
-        $this->client->types->update($type, 'type_id');
-    }*/
 
     public function testDeleteType(): void
     {
@@ -110,4 +84,21 @@ class TypeTest extends BaseTest
         );
         $this->client->types->delete("type_id");
     }
+
+    public function testUpdateType(): void
+    {
+        $this->mockClient
+            ->expects($this->exactly(1))->method('performHttpRequest')
+            ->withConsecutive(
+                ['PUT', 'types/type_id', null, '{"name":"archived"}'],
+               
+            )
+            ->willReturn([200, '', '{}']);
+
+        $type = new Type();
+        $type->name = "archived" ;
+        $this->client->types->update($type, 'type_id');
+
+    }
+    
 }

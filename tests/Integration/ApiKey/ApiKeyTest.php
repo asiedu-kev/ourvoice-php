@@ -54,6 +54,22 @@ class ApiKeyTest extends BaseTest
         );
         $this->client->apikeys->read("apikey_id");
     }
+
+    public function testUpdateApiKey(): void
+    {
+        $this->mockClient
+            ->expects($this->exactly(1))->method('performHttpRequest')
+            ->withConsecutive(
+                ['PUT', 'api-keys/apikey_id', null, '{"type":"fadi"}'],
+               
+            )
+            ->willReturn([200, '', '{}']);
+
+        $apikey = new ApiKey();
+        $apikey->type = "fadi" ;
+        $this->client->apikeys->update($apikey, 'apikey_id');
+
+    }
     public function testDeleteApiKey(): void
     {
         $this->expectException(ServerException::class);

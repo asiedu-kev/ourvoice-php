@@ -26,28 +26,4 @@ class Contacts extends Base
     }
 
    
-    public function update($object, $id)
-    {
-        $objVars = get_object_vars($object);
-        $body = [];
-        foreach ($objVars as $key => $value) {
-            if ($value !== null) {
-                $body[$key] = $value;
-            }
-        }
-
-        $resourceName = $this->resourceName . ($id ? '/' . $id : null);
-        $body = json_encode($body, \JSON_THROW_ON_ERROR);
-
-        [, , $body] = $this->httpClient->performHttpRequest(
-            Common\HttpClient::REQUEST_PATCH,
-            $resourceName,
-            false,
-            $body
-        );
-        return $this->processRequest($body);
-    }
-
-
-   
 }

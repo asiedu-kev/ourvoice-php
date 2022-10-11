@@ -55,6 +55,23 @@ class BalanceTest extends BaseTest
         );
         $this->client->balances->read("balance_id");
     }
+
+    public function testUpdateBalance(): void
+    {
+        $this->mockClient
+            ->expects($this->exactly(1))->method('performHttpRequest')
+            ->withConsecutive(
+                ['PUT', 'balances/balance_id', null, '{"currency":"4"}'],
+               
+            )
+            ->willReturn([200, '', '{}']);
+
+        $balance = new Balance();
+        $balance->currency = "4" ;
+        $this->client->balances->update($balance, 'balance_id');
+
+    }
+
     public function testDeleteBalance(): void
     {
         $this->expectException(ServerException::class);

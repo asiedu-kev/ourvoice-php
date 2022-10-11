@@ -60,6 +60,23 @@ class PaymentMethodTest extends BaseTest
         );
         $this->client->payment_methods->read("payment_method_id");
     }
+
+    public function testUpdatePaymentMethod(): void
+    {
+        $this->mockClient
+            ->expects($this->exactly(1))->method('performHttpRequest')
+            ->withConsecutive(
+                ['PUT', 'payment-methods/payment_method_id', null, '{"type":"archived"}'],
+               
+            )
+            ->willReturn([200, '', '{}']);
+
+        $paymentmethod = new PaymentMethod();
+        $paymentmethod->type = "archived" ;
+        $this->client->payment_methods->update($paymentmethod, 'payment_method_id');
+
+    }
+
     public function testDeletePaymentMethod(): void
     {
         $this->expectException(ServerException::class);

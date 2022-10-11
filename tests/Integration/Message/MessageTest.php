@@ -62,6 +62,22 @@ class MessageTest extends BaseTest
         );
         $this->client->messages->read("message_id");
     }
+    public function testUpdateMessage(): void
+    {
+        $this->mockClient
+            ->expects($this->exactly(1))->method('performHttpRequest')
+            ->withConsecutive(
+                ['PUT', 'messages/message_id', null, '{"direction":"archived"}'],
+               
+            )
+            ->willReturn([200, '', '{}']);
+
+        $message = new Message();
+        $message->direction = "archived" ;
+        $this->client->messages->update($message, 'message_id');
+
+    }
+
     public function testDeleteMessage(): void
     {
         $this->expectException(ServerException::class);

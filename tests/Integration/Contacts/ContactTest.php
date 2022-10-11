@@ -66,6 +66,24 @@ class ContactTest extends BaseTest
         $this->client->contacts->read("contact_id");
     }
 
+
+    public function testUpdateContact(): void
+    {
+        $this->mockClient
+            ->expects($this->exactly(1))->method('performHttpRequest')
+            ->withConsecutive(
+                ['PUT', 'contacts/contact_id', null, '{"first_name":"gagle"}'],
+               
+            )
+            ->willReturn([200, '', '{}']);
+
+        $contact = new Contact();
+        $contact->first_name = "gagle" ;
+        $this->client->contacts->update($contact, 'contact_id');
+
+    }
+
+
     public function testDeleteContact(): void
     {
         $this->expectException(ServerException::class);

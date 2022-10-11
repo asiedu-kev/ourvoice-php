@@ -54,6 +54,23 @@ class AccountTest extends BaseTest
         );
         $this->client->accounts->read("account_id");
     }
+
+    public function testUpdateAccount(): void
+    {
+        $this->mockClient
+            ->expects($this->exactly(1))->method('performHttpRequest')
+            ->withConsecutive(
+                ['PUT', 'accounts/account_id', null, '{"status":"sending"}'],
+               
+            )
+            ->willReturn([200, '', '{}']);
+
+        $account = new Account();
+        $account->status = "sending" ;
+        $this->client->accounts->update($account, 'account_id');
+
+    }
+
     public function testDeleteAccount(): void
     {
         $this->expectException(ServerException::class);

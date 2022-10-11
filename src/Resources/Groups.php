@@ -29,52 +29,8 @@ class Groups extends Base
         parent::__construct($httpClient);
     }
 
-    /**
-     * @param mixed $object
-     * @param mixed $id
-     *
-     * @return Objects\Balance|Objects\Conversation\Conversation|Objects\Hlr|Objects\Lookup|Objects\Message|Objects\Verify|Objects\VoiceMessage|null ->object
-     *
-     * @throws Exceptions\AuthenticateException
-     * @throws Exceptions\HttpException
-     * @throws Exceptions\RequestException
-     * @throws Exceptions\ServerException
-     * @throws \JsonException
-     *
-     * @internal param array $parameters
-     */
-    public function update($object, $id)
-    {
-        $objVars = get_object_vars($object);
-        $body = [];
-        foreach ($objVars as $key => $value) {
-            if ($value !== null) {
-                $body[$key] = $value;
-            }
-        }
 
-        $resourceName = $this->resourceName . ($id ? '/' . $id : null);
-        $body = json_encode($body, \JSON_THROW_ON_ERROR);
 
-        [, , $body] = $this->httpClient->performHttpRequest(
-            Common\HttpClient::REQUEST_PATCH,
-            $resourceName,
-            false,
-            $body
-        );
-        return $this->processRequest($body);
-    }
-
-    /**
-     * @param string|null $id
-     * @param array|null $parameters
-     *
-     * @return mixed
-     *
-     * @throws InvalidArgumentException
-     * @throws \JsonException
-     *
-     */
     public function getContacts(?string $id = null, ?array $parameters = [])
     {
         if ($id === null) {
@@ -85,17 +41,7 @@ class Groups extends Base
         return $this->contactsObject->getList($parameters);
     }
 
-    /**
-     * @param array $contacts
-     * @param string|null $id
-     *
-     * @return mixed
-     * @throws Exceptions\HttpException
-     * @throws InvalidArgumentException
-     *
-     * @throws Exceptions\AuthenticateException
-     * @throws \JsonException
-     */
+
     public function addContacts(array $contacts, ?string $id = null)
     {
         if (!\is_array($contacts)) {
