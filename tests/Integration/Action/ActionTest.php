@@ -23,8 +23,6 @@ class ActionTest extends BaseTest
             200,
             '',
             '{
-            "id": "61afc0531573b08ddbe36e1c85602827",
-            "href": "https://staging.getourvoice.com/api/v1/actions/61afc0531573b08ddbe36e1c85602827",
             "label": "John",
             "description": "Johnhg",
             "createdDatetime": "2016-04-29T09:42:26+00:00",
@@ -52,6 +50,31 @@ class ActionTest extends BaseTest
         );
         $this->client->actions->read("action_id");
     }
+
+    public function testUpdateAction(): void
+    {
+        $action = new Action();
+        $action->label = "John";
+        $action->description = "Johnhg";
+
+        $this->mockClient
+            ->expects($this->once())
+            ->method('performHttpRequest')
+            ->with(
+                'PUT',
+                'actions/action_id',
+                null,
+                '{"label":"John","description":"Johnhg"}'
+            )
+            ->willReturn([
+                204,
+                '',
+                '{"label":"John code"}'
+            ]);
+
+        $this->client->actions->update($action, 'action_id');
+    }
+
     public function testDeleteAction(): void
     {
         $this->expectException(ServerException::class);

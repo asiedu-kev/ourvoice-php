@@ -18,7 +18,7 @@ class Group extends Base
 
     public $account_id;
 
-    protected $id;
+    public $id;
 
 
     protected $contacts = null;

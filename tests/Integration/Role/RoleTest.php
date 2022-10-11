@@ -23,8 +23,6 @@ class RoleTest extends BaseTest
             200,
             '',
             '{
-            "id": "61afc0531573b08ddbe36e1c85602827",
-            "href": "https://staging.getourvoice.com/api/v1/roles/61afc0531573b08ddbe36e1c85602827",
             "name": "John",
             "description": "Johnhg",
             "createdDatetime": "2016-04-29T09:42:26+00:00",
@@ -52,6 +50,31 @@ class RoleTest extends BaseTest
         );
         $this->client->roles->read("role_id");
     }
+
+    public function testUpdateRole(): void
+    {
+        $role = new Role();
+        $role->name = "John";
+        $role->description = "Johnhg";
+
+        $this->mockClient
+            ->expects($this->once())
+            ->method('performHttpRequest')
+            ->with(
+                'PUT',
+                'roles/role_id',
+                null,
+                '{"name":"John","description":"Johnhg"}'
+            )
+            ->willReturn([
+                204,
+                '',
+                '{"name":"John code"}'
+            ]);
+
+        $this->client->roles->update($role, 'role_id');
+    }
+
     public function testDeleteRole(): void
     {
         $this->expectException(ServerException::class);

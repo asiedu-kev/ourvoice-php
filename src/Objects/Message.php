@@ -17,11 +17,11 @@ class Message extends Base
 
     public $body;
 
-    protected $to;
+    public $to;
 
     public $status;
 
     public $cost;
 
-    protected $id;
+    public $id;
 }

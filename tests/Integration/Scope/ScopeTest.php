@@ -23,8 +23,6 @@ class ScopeTest extends BaseTest
             200,
             '',
             '{
-            "id": "61afc0531573b08ddbe36e1c85602827",
-            "href": "https://staging.getourvoice.com/api/v1/scopes/61afc0531573b08ddbe36e1c85602827",
             "name": "John",
             "description": "description",
             "createdDatetime": "2016-04-29T09:42:26+00:00",
@@ -52,6 +50,31 @@ class ScopeTest extends BaseTest
         );
         $this->client->scopes->read("scope_id");
     }
+
+    public function testUpdateScope(): void
+    {
+        $scope = new Scope();
+        $scope->name = "John";
+        $scope->description = "description";
+
+        $this->mockClient
+            ->expects($this->once())
+            ->method('performHttpRequest')
+            ->with(
+                'PUT',
+                'scopes/scope_id',
+                null,
+                '{"name":"John","description":"description"}'
+            )
+            ->willReturn([
+                204,
+                '',
+                '{"name":"John code"}'
+            ]);
+
+        $this->client->scopes->update($scope, 'scope_id');
+    }
+
     public function testDeleteScope(): void
     {
         $this->expectException(ServerException::class);

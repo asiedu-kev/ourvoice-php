@@ -17,5 +17,5 @@ class User extends Base
 
     public $email;
 
-    protected $id;
+    public $id;
 }

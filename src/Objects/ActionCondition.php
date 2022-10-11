@@ -22,5 +22,5 @@ class ActionCondition extends Base
 
     public $action_id;
 
-    protected $id;
+    public $id;
 }

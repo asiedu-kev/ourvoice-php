@@ -11,43 +11,48 @@ use Tests\Integration\BaseTest;
 class TypeTest extends BaseTest
 {
 
-    /*public function testCreateType(): void
+    public function testCreateType(): void
     {
         $scope = new Scope();
+        $scope->id = "61afc0531573b08ddbe36e1c85602827";
         $type = new Type();
         $type->name = "John";
+        $type->description = "Johnhg";
         $type->scope_id = $scope->id;
 
         $this->mockClient->expects(self::once())->method('performHttpRequest')->willReturn([
             200,
             '',
             '{
-            "id": "61afc0531573b08ddbe36e1c85602827",
-            "href": "https://staging.getourvoice.com/api/v1/types/61afc0531573b08ddbe36e1c85602827",
             "name": "John",
+            "description":"Johnhg",
             "scope_id": "$scope->id",
+            "createdDatetime": "2016-04-29T09:42:26+00:00",
+            "updatedDatetime": "2016-04-29T09:42:26+00:00"
             
         }',
         ]);
         
         $this->client->types->create($type);
-    }*/
-    public function testCreateType(): void
+    }
+   /*public function testCreateType(): void
     {
         $this->expectException(ServerException::class);
         $scope = new Scope();
+        $scope->id = "61afc0531573b08ddbe36e1c85602827";
         $type = new Type();
         $type->name = "Johns";
+        $type->description = "Johnhg";
         $type->scope_id = $scope->id;
 
         $this->mockClient->expects(self::once())->method('performHttpRequest')->with(
             "POST",
             'types',
             null,
-           // '{"name":"Johns","scope_id":"$scope->id"}',
+           '{"name":"Johns","description":"Johnhg","scope_id":"$scope->id"}',
         );
         $this->client->types->create($type);
-    }
+    }*/
     public function testListType(): void
     {
         $this->expectException(ServerException::class);
@@ -66,6 +71,34 @@ class TypeTest extends BaseTest
         );
         $this->client->types->read("type_id");
     }
+
+    /*public function testUpdateType(): void
+    {
+        $scope = new Scope();
+        $scope->id = "61afc0531573b08ddbe36e1c85602827";
+        $type = new Type();
+        $type->name = "John";
+        $type->description = "Johnhg";
+        $type->scope_id = $scope->id;
+
+        $this->mockClient
+            ->expects($this->once())
+            ->method('performHttpRequest')
+            ->with(
+                'PUT',
+                'types/type_id',
+                null,
+                '{"name":"Johns","description":"Johnhg","scope_id":"$scope->id"}'
+            )
+            ->willReturn([
+                204,
+                '',
+                '{"name":"John code"}'
+            ]);
+
+        $this->client->types->update($type, 'type_id');
+    }*/
+
     public function testDeleteType(): void
     {
         $this->expectException(ServerException::class);

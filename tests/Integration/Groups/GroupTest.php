@@ -6,10 +6,35 @@ namespace Tests\Integration\Groups;
 use  Ourvoice\Sdk\Exceptions\ServerException;
 use  Ourvoice\Sdk\Objects\Group;
 use Tests\Integration\BaseTest;
+use  Ourvoice\Sdk\Objects\Account;
 
 class GroupTest extends BaseTest
 {
-   
+    public function testCreateGroup(): void
+    {
+       
+        $account = new Account();
+        $account->id = "61afc0531573b08ddbe36e1c85602827";
+        $group = new Group();
+        $group->name = "John";
+        $group->description = "Johnhg";
+        $group->account_id = $account->id;
+        
+
+        $this->mockClient->expects(self::once())->method('performHttpRequest')->willReturn([
+            200,
+            '',
+            '{
+            "name": "John",
+            "description": "Johnhg",
+            "account_id": "$account->id",
+            "createdDatetime": "2016-04-29T09:42:26+00:00",
+            "updatedDatetime": "2016-04-29T09:42:26+00:00"
+        }',
+        ]);
+       
+        $this->client->groups->create($group);
+    }
 
     public function testListGroups(): void
     {

@@ -11,9 +11,10 @@ use Tests\Integration\BaseTest;
 
 class ContactTest extends BaseTest
 {
-    /*public function testCreateContact(): void
+    public function testCreateContact(): void
     {
         $account = new Account();
+        $account->id = "61afc0531573b08ddbe36e1c85602822";
         $contact = new Contact();
         $contact->first_name = "John";
         $contact->last_name = "Doe";
@@ -26,20 +27,20 @@ class ContactTest extends BaseTest
             200,
             '',
             '{
-            "id": "61afc0531573b08ddbe36e1c85602827",
-            "href": "https://staging.getourvoice.com/api/v1/contacts/61afc0531573b08ddbe36e1c85602827",
             "first_name": "John",
             "last_name": "Doe",
             "phone_number": "31612345678",
             "langue": "fon",
             "custom_fields": "Customfield2",
             "account_id": "$account->id",
+            "createdDatetime": "2016-04-29T09:42:26+00:00",
+            "updatedDatetime": "2016-04-29T09:42:26+00:00"
             
         }',
         ]);
         
         $this->client->contacts->create($contact);
-    }*/
+    }
 
     public function testListContacts(): void
     {

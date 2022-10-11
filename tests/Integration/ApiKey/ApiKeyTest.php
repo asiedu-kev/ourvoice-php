@@ -5,9 +5,37 @@ namespace Tests\Integration\ApiKey;
 use Ourvoice\Sdk\Exceptions\ServerException;
 use  Ourvoice\Sdk\Common\HttpClient;
 use Tests\Integration\BaseTest;
+use  Ourvoice\Sdk\Objects\ApiKey;
+use  Ourvoice\Sdk\Objects\Account;
 
 class ApiKeyTest extends BaseTest
 {
+
+    public function testCreateApiKey(): void
+    {
+        $account = new Account();
+        $account->id = "61afc0531573b08ddbe36e1c85602827";
+        $apikey = new ApiKey();
+        $apikey->type = "John";
+        $apikey->description = "Johnhg";
+        $apikey->account_id = $account->id;
+
+        $this->mockClient->expects(self::once())->method('performHttpRequest')->willReturn([
+            200,
+            '',
+            '{
+            "type": "John",
+            "description":"Johnhg",
+            "account_id": "$account->id",
+            "createdDatetime": "2016-04-29T09:42:26+00:00",
+            "updatedDatetime": "2016-04-29T09:42:26+00:00"
+            
+        }',
+        ]);
+        
+        $this->client->apikeys->create($apikey);
+    }
+
     public function testListApiKey(): void
     {
         $this->expectException(ServerException::class);

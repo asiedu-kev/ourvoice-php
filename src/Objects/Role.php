@@ -13,5 +13,5 @@ class Role extends Base
 
     public $description;
 
-    protected $id;
+    public $id;
 }

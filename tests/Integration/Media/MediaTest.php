@@ -5,9 +5,41 @@ namespace Tests\Integration\Media;
 use Ourvoice\Sdk\Exceptions\ServerException;
 use  Ourvoice\Sdk\Common\HttpClient;
 use Tests\Integration\BaseTest;
+use  Ourvoice\Sdk\Objects\Account;
+use  Ourvoice\Sdk\Objects\Media;
 
 class MediaTest extends BaseTest
 {
+
+    public function testCreateMedia(): void
+    {
+       
+        $account = new Account();
+        $account->id = "61afc0531573b08ddbe36e1c85602827";
+        $media = new Media();
+        $media->name = "John";
+        $media->media_url = "https://stackoverflow.com/";
+        $media->type = "voice";
+        $media->account_id = $account->id;
+        
+
+        $this->mockClient->expects(self::once())->method('performHttpRequest')->willReturn([
+            200,
+            '',
+            '{
+            "name": "John",
+            "media_url": "https://stackoverflow.com/",
+            "type": "voice",
+            "account_id": "$account->id",
+            "createdDatetime": "2016-04-29T09:42:26+00:00",
+            "updatedDatetime": "2016-04-29T09:42:26+00:00"
+        }',
+        ]);
+       
+        $this->client->medias->create($media);
+    }
+
+
     public function testListMedia(): void
     {
         $this->expectException(ServerException::class);

@@ -4,10 +4,42 @@ namespace Tests\Integration\Invitation;
 
 use Ourvoice\Sdk\Exceptions\ServerException;
 use  Ourvoice\Sdk\Common\HttpClient;
+use  Ourvoice\Sdk\Objects\Account;
+use  Ourvoice\Sdk\Objects\Role;
+use  Ourvoice\Sdk\Objects\Invitation;
 use Tests\Integration\BaseTest;
 
 class InvitationTest extends BaseTest
 {
+
+    public function testCreateInvitation(): void
+    {
+       
+        $account = new Account();
+        $account->id = "61afc0531573b08ddbe36e1c85602827";
+        $role = new Role();
+        $role->id = "67afc0531573b08ddbe36e1c85602827";
+        $invitation = new Invitation();
+        $invitation->email = "admin@gmail.com";
+        $invitation->role_id = $role->id;
+        $invitation->account_id = $account->id;
+        
+
+        $this->mockClient->expects(self::once())->method('performHttpRequest')->willReturn([
+            200,
+            '',
+            '{
+            "email": "admin@gmail.com",
+            "role_id": "$role->id",
+            "account_id": "$account->id",
+            "createdDatetime": "2016-04-29T09:42:26+00:00",
+            "updatedDatetime": "2016-04-29T09:42:26+00:00"
+        }',
+        ]);
+       
+        $this->client->invitations->create($invitation);
+    }
+
     public function testListInvitation(): void
     {
         $this->expectException(ServerException::class);

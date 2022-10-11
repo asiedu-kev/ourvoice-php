@@ -13,13 +13,15 @@ class ActionConditionTest extends BaseTest
 {
 
 
-   /* public function testCreateActionCondition(): void
+  /* public function testCreateActionCondition(): void
     {
         $this->expectException(ServerException::class);
-        $action_conditions = new ActionCondition();
-        $condition = new Condition();
         $action = new Action();
-        $action_condition->min_value = "1";
+        $action->id = "61afc0531573b08ddbe36e1c85602897";
+        $condition = new Condition();
+        $condition ->id = "61afc5531573b08ddbe36e1c85602897";
+        $action_condition = new ActionCondition();
+        $action_condition->min_value = "0";
         $action_condition->max_value = "9";
         $action_condition->categorised_value = "5";
         $action_condition->text_value = "Johnhg";
@@ -34,6 +36,46 @@ class ActionConditionTest extends BaseTest
         );
         $this->client->action_conditions->create($action_condition);
     } */
+    public function testCreateActionCondition(): void
+    {
+        $action = new Action();
+        $action->id = "61afc0531573b08ddbe36e1c85602897";
+        $condition = new Condition();
+        $condition ->id = "61afc5531573b08ddbe36e1c85602897";
+        $action_condition = new ActionCondition();
+        $action_condition->min_value = "0";
+        $action_condition->max_value = "9";
+        $action_condition->categorised_value = "5";
+        $action_condition->text_value = "Johnhg";
+        $action_condition->condition_id = $condition->id;
+        $action_condition->action_id =  $action->id;
+
+        $this->mockClient->expects(self::once())->method('performHttpRequest')->willReturn([
+            200,
+            '',
+            '{
+            "min_value": "1",
+            "max_value":"9",
+            "categorised_value":"5",
+            "text_value": "Johnhg",
+            "condition_id": "$condition->id",
+            "action_id": "$action->id",
+            "createdDatetime": "2016-04-29T09:42:26+00:00",
+            "updatedDatetime": "2016-04-29T09:42:26+00:00"
+            
+        }',
+        ]);
+        
+        $this->client->action_conditions->create($action_condition);
+    }
+
+    public function testListAccount(): void
+    {
+        $this->expectException(ServerException::class);
+        $this->mockClient->expects(self::once())->method('performHttpRequest')->with("GET", 'accounts', null, null);
+        $this->client->accounts->read();
+    }
+
 
     public function testListActionCondition(): void
     {
