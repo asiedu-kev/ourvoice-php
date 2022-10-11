@@ -20,9 +20,7 @@ class RequestValidator {
         \ksort($data);
 
         foreach ($data as $key => $value) {
-            // convert a single value to an array or remove any duplicates
             $valueArray = \is_array($value) ? \array_unique($value) : array($value);
-            // also sort all the values
             \sort($valueArray);
 
             

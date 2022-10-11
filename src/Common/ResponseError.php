@@ -26,21 +26,10 @@ class ResponseError
 
     public $errors = [];
 
-    /**
-     * Load the error data into an array.
-     * Throw an exception when important errors are found.
-     *
-     * @param mixed $body
-     *
-     * @throws Exceptions\AuthenticateException
-     * @throws Exceptions\BalanceException
-     */
     public function __construct($body)
     {
         if (!empty($body->errors)) {
             foreach ($body->errors as $error) {
-                // Voice API returns errors with a "message" field instead of "description".
-                // This ensures all errors have a description set.
                 if (!empty($error->message)) {
                     $error->description = $error->message;
                     unset($error->message);
@@ -57,23 +46,12 @@ class ResponseError
         }
     }
 
-    /**
-     * Get the exception message for the provided error.
-     *
-     * @param mixed $error
-     *
-     * @return string
-     */
     private function getExceptionMessage($error)
     {
         return sprintf(self::EXCEPTION_MESSAGE, $error->description);
     }
 
-    /**
-     * Get a string of all of this response's concatenated error descriptions.
-     *
-     * @return string
-     */
+
     public function getErrorString()
     {
         $errorDescriptions = [];

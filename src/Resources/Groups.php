@@ -41,7 +41,6 @@ class Groups extends Base
         return $this->contactsObject->getList($parameters);
     }
 
-
     public function addContacts(array $contacts, ?string $id = null)
     {
         if (!\is_array($contacts)) {

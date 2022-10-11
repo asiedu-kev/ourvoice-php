@@ -31,11 +31,6 @@ class Contact extends Base
    
     protected $createdDatetime;
 
-    /**
-     * The date and time of the updated of the contact in RFC3339 format (Y-m-d\TH:i:sP)
-     *
-     * @var string|null
-     */
     protected $updatedDatetime;
 
     public function getId(): string
@@ -46,15 +41,7 @@ class Contact extends Base
     {
         return $this->groups;
     }
-    public function getCreatedDatetime(): string
-    {
-        return $this->createdDatetime;
-    }
-
-    public function getUpdatedDatetime(): ?string
-    {
-        return $this->updatedDatetime;
-    }
+    
 
     
 

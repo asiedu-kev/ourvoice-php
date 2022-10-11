@@ -102,35 +102,16 @@ class HttpClient
         $this->headers = $headers;
     }
 
-    /**
-     * @param mixed $option
-     * @param mixed $value
-     */
     public function addHttpOption($option, $value): void
     {
         $this->httpOptions[$option] = $value;
     }
 
-    /**
-     * @param mixed $option
-     * @return mixed|null
-     */
     public function getHttpOption($option)
     {
         return $this->httpOptions[$option] ?? null;
     }
 
-    /**
-     * @param string $method
-     * @param string|null $resourceName
-     * @param mixed $query
-     * @param string|null $body
-     *
-     * @return array
-     *
-     * @throws Exceptions\AuthenticateException
-     * @throws Exceptions\HttpException
-     */
     public function performHttpRequest(string $method, ?string $resourceName, $query = null, ?string $body = null): ?array
     {
         $curl = curl_init();
@@ -175,16 +156,6 @@ class HttpClient
             curl_setopt($curl, \CURLOPT_POSTFIELDS, $body);
         }
 
-        // Some servers have outdated or incorrect certificates, Use the included CA-bundle
-        $caFile = dirname(__DIR__) . '/ca-bundle.crt';
-        if (!file_exists($caFile)) {
-            throw new Exceptions\HttpException(sprintf(
-                'Unable to find CA-bundle file "%s".',
-                __DIR__ . '/../ca-bundle.crt'
-            ));
-        }
-
-        curl_setopt($curl, \CURLOPT_CAINFO, $caFile);
 
         $response = curl_exec($curl);
 
@@ -193,8 +164,6 @@ class HttpClient
         }
 
         $responseStatus = (int)curl_getinfo($curl, \CURLINFO_HTTP_CODE);
-
-        // Split the header and body
         $parts = explode("\r\n\r\n", $response, 3);
         $isThreePartResponse = (strpos($parts[0], "\n") === false && strpos($parts[0], 'HTTP/1.') === 0);
         [$responseHeader, $responseBody] = $isThreePartResponse ? [$parts[1], $parts[2]] : [$parts[0], $parts[1]];
@@ -204,12 +173,6 @@ class HttpClient
         return [$responseStatus, $responseHeader, $responseBody];
     }
 
-    /**
-     * @param string $resourceName
-     * @param mixed $query
-     *
-     * @return string
-     */
     public function getRequestUrl(string $resourceName, $query): string
     {
         $requestUrl = $this->endpoint . '/' . $resourceName;

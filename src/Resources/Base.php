@@ -38,9 +38,7 @@ class Base
         return $this->resourceName;
     }
 
-    /**
-     * @param mixed $resourceName
-     */
+
     public function setResourceName($resourceName): void
     {
         $this->resourceName = $resourceName;
@@ -52,11 +50,6 @@ class Base
         return $this->object;
     }
 
-    /**
-     * @deprecated
-     * 
-     * @param mixed $object
-     */
     public function setObject($object): void
     {
         $this->object = $object;
@@ -67,9 +60,6 @@ class Base
         return $this->responseObject;
     }
 
-    /**
-     * @param mixed $responseObject
-     */
     public function setResponseObject($responseObject): void
     {
         $this->responseObject = $responseObject;
