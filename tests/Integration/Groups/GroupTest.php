@@ -14,7 +14,6 @@ class GroupTest extends BaseTest
     {
        
         $account = new Account();
-        $account->id = "61afc0531573b08ddbe36e1c85602827";
         $group = new Group();
         $group->name = "John";
         $group->description = "Johnhg";

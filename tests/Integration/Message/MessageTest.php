@@ -15,7 +15,6 @@ class MessageTest extends BaseTest
     public function testCreateMessage(): void
     {
         $account = new Account();
-        $account->id = "61afc0531573b08ddbe36e1c85602827";
         $message = new Message();
         $message->from = "22961616262";
         $message->direction = "never";

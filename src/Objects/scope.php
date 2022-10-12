@@ -14,4 +14,6 @@ class Scope extends Base
     public $description;
 
     public $id;
+
+    
 }

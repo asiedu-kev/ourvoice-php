@@ -15,7 +15,6 @@ class MediaTest extends BaseTest
     {
        
         $account = new Account();
-        $account->id = "61afc0531573b08ddbe36e1c85602827";
         $media = new Media();
         $media->name = "John";
         $media->media_url = "https://stackoverflow.com/";

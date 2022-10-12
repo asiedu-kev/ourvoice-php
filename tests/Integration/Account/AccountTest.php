@@ -12,7 +12,6 @@ class AccountTest extends BaseTest
     public function testCreateAccount(): void
     {
         $user = new User();
-        $user->id = "61afc0531573b08ddbe36e1c85602827";
         $account = new Account();
         $account->organization_name = "John";
         $account->status = "active";

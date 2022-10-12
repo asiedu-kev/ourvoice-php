@@ -14,7 +14,6 @@ class PaymentMethodTest extends BaseTest
     public function testCreatePaymentMethod(): void
     {
         $account = new Account();
-        $account->id = "61afc0531573b08ddbe36e1c85602827";
         $paymentmethod = new PaymentMethod();
         $paymentmethod->type = "sms";
         //$paymentmethod->card_brand = "22961616823";
@@ -32,8 +31,6 @@ class PaymentMethodTest extends BaseTest
             "type": "sms",
             "phone_number":"22961616823",
             "account_id": "$account->id",
-            "group_id": "$group->id",
-            "message_id": "$message->id",
             "createdDatetime": "2016-04-29T09:42:26+00:00",
             "updatedDatetime": "2016-04-29T09:42:26+00:00"
             

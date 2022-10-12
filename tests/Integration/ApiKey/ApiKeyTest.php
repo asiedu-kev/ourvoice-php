@@ -14,7 +14,6 @@ class ApiKeyTest extends BaseTest
     public function testCreateApiKey(): void
     {
         $account = new Account();
-        $account->id = "61afc0531573b08ddbe36e1c85602827";
         $apikey = new ApiKey();
         $apikey->type = "John";
         $apikey->description = "Johnhg";

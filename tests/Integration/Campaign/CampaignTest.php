@@ -16,11 +16,8 @@ class CampaignTest extends BaseTest
     public function testCreateCampaign(): void
     {
         $account = new Account();
-        $account->id = "61afc0531573b08ddbe36e1c85602827";
         $group = new Group();
-        $group->id = "65afc0531573b08ddbe36e1c85602827";
         $message = new Message();
-        $message->id = "64afc0531573b08ddbe36e1c85602827";
         $campaign = new Campaign();
         $campaign->type = "sms";
         $campaign->repeat = "never";

@@ -14,7 +14,6 @@ class BalanceTest extends BaseTest
     public function testCreateBalance(): void
     {
         $account = new Account();
-        $account->id = "61afc0531573b08ddbe36e1c85602827";
         $balance = new Balance();
         $balance->currency = "5";
         $balance->amount = "8";

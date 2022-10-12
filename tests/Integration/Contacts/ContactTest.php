@@ -14,7 +14,6 @@ class ContactTest extends BaseTest
     public function testCreateContact(): void
     {
         $account = new Account();
-        $account->id = "61afc0531573b08ddbe36e1c85602822";
         $contact = new Contact();
         $contact->first_name = "John";
         $contact->last_name = "Doe";

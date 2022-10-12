@@ -13,35 +13,10 @@ class ActionConditionTest extends BaseTest
 {
 
 
-  /* public function testCreateActionCondition(): void
-    {
-        $this->expectException(ServerException::class);
-        $action = new Action();
-        $action->id = "61afc0531573b08ddbe36e1c85602897";
-        $condition = new Condition();
-        $condition ->id = "61afc5531573b08ddbe36e1c85602897";
-        $action_condition = new ActionCondition();
-        $action_condition->min_value = "0";
-        $action_condition->max_value = "9";
-        $action_condition->categorised_value = "5";
-        $action_condition->text_value = "Johnhg";
-        $action_condition->condition_id = $condition->id;
-        $action_condition->action_id =  $action->id;
-
-        $this->mockClient->expects(self::once())->method('performHttpRequest')->with(
-            "POST",
-            'action-conditions',
-            null,
-            '{"min_value":"1","max_value":"9","categorised_value":"5","text_value":"Johnhg","condition_id":"$condition->id","action_id":"$action->id"}'
-        );
-        $this->client->action_conditions->create($action_condition);
-    } */
     public function testCreateActionCondition(): void
     {
         $action = new Action();
-        $action->id = "61afc0531573b08ddbe36e1c85602897";
         $condition = new Condition();
-        $condition ->id = "61afc5531573b08ddbe36e1c85602897";
         $action_condition = new ActionCondition();
         $action_condition->min_value = "0";
         $action_condition->max_value = "9";

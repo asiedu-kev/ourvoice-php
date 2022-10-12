@@ -16,7 +16,6 @@ class InvitationTest extends BaseTest
     {
        
         $account = new Account();
-        $account->id = "61afc0531573b08ddbe36e1c85602827";
         $role = new Role();
         $role->id = "67afc0531573b08ddbe36e1c85602827";
         $invitation = new Invitation();
