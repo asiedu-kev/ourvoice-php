@@ -21,6 +21,7 @@ class BaseTest extends TestCase
     {
         $ourvoiceSdk = new Client('YOUR_ACCESS_KEY');
         self::assertInstanceOf(Balance::class, $ourvoiceSdk->balances);
+       
         
     }
 
@@ -34,7 +35,7 @@ class BaseTest extends TestCase
     {
         parent::setUp();
 
-        $this->mockClient = $this->getMockBuilder(HttpClient::class)->setConstructorArgs([""])->getMock();
+        $this->mockClient = $this->getMockBuilder(HttpClient::class)->setConstructorArgs(["fake.ourvoicesdk.dev"])->getMock();
         $this->client = new Client('YOUR_ACCESS_KEY', $this->mockClient);
     }
 
