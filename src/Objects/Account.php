@@ -9,13 +9,13 @@ namespace Ourvoice\Sdk\Objects;
  */
 class Account extends Base
 {
-    public $organization_name;
-
-    public $status;
-
-    public $type;
-
-    public $user_id;
-
-    public $id;
+   public $id;
+   public $name;
+   public $status;
+   public $balance;
+   public $currency;
+   public $owner_id;
+   public $settings;
+   public $country;
+   public $timezone;
 }

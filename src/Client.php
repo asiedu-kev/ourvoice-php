@@ -24,20 +24,11 @@ class Client
      * @var Resources\Groups
      */
     public $groups;
-   
-    /**
-     * @var Resources\Balance
-     */
-    public $balances;
-
      /**
      * @var Resources\Account
      */
     public $accounts;
-    /**
-     * @var Resources\Scope
-     */
-    public $scopes;
+
     /**
      * @var Resources\Role
      */
@@ -83,15 +74,6 @@ class Client
      */
     public $messages;
 
-      /**
-     * @var Resources\PaymentMethod
-     */
-    public $payment_methods;
-    
-      /**
-     * @var Resources\Type
-     */
-    public $types;
 
       /**
      * @var Resources\User
@@ -124,11 +106,9 @@ class Client
         if ($accessKey !== null) {
             $this->setAccessKey($accessKey);
         }
-        $this->balances = new Resources\Balance($this->httpClient);
         $this->accounts = new Resources\Account($this->httpClient);
         $this->contacts = new Resources\Contacts($this->httpClient);
         $this->groups = new Resources\Groups($this->httpClient);
-        $this->scopes = new Resources\Scope($this->httpClient);
         $this->roles = new Resources\Role($this->httpClient);
         $this->actions = new Resources\Action($this->httpClient);
         $this->conditions = new Resources\Condition($this->httpClient);
@@ -138,8 +118,6 @@ class Client
         $this->invitations = new Resources\Invitation($this->httpClient);
         $this->medias = new Resources\Media($this->httpClient);
         $this->messages = new Resources\Message($this->httpClient);
-        $this->payment_methods = new Resources\PaymentMethod($this->httpClient);
-        $this->types = new Resources\Type($this->httpClient);
         $this->users = new Resources\User($this->httpClient);
     }
 

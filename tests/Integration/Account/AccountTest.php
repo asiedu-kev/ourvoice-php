@@ -13,19 +13,17 @@ class AccountTest extends BaseTest
     {
         $user = new User();
         $account = new Account();
-        $account->organization_name = "John";
+        $account->name = $user->first_name .' '. $user->last_name.' Account';
         $account->status = "active";
-        $account->type = "test";
-        $account->user_id = $user->id;
+        $account->owner_id = $user->id;
 
         $this->mockClient->expects(self::once())->method('performHttpRequest')->willReturn([
             200,
             '',
             '{
-            "organization_name": "John",
             "status":"active",
             "type":"test",
-            "user_id": "$user->id",
+            "owner_id": "$user->id",
             "createdDatetime": "2016-04-29T09:42:26+00:00",
             "updatedDatetime": "2016-04-29T09:42:26+00:00"
             

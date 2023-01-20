@@ -12,7 +12,7 @@ class Campaign extends Base
    
     public $account_id;
 
-    public $message_id;
+    public $name;
 
     public $group_id;
 
