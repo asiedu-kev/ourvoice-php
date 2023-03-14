@@ -2,6 +2,7 @@
     "name": "ourvoice/sdk",
     "description": "Ourvoice Api REST API client for php",
     "type": "library",
+    "license": "MIT",
     "require": {
         "php": ">=7.4"
     },
