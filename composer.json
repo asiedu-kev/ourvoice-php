@@ -2,7 +2,6 @@
     "name": "ourvoice/sdk",
     "description": "Ourvoice Api REST API client for php",
     "type": "library",
-    "license": "TIC",
     "require": {
         "php": ">=7.4"
     },
@@ -13,7 +12,8 @@
     },
     "authors": [
         {
-            "name": "TICABC"
+            "name": "TIC ABC",
+            "email": "asiedukevin050@gmail.com"
         }
     ],
     "autoload-dev": {
