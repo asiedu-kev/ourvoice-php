@@ -1,5 +1,5 @@
 {
-    "name": "ourvoice/sdk",
+    "name": "ourvoice/php",
     "description": "Ourvoice Api REST API client for php",
     "type": "library",
     "license": "MIT",
@@ -15,7 +15,6 @@
     "authors": [
         {
             "name": "TIC ABC",
-            "email": "asiedukevin050@gmail.com"
         }
     ],
     "autoload-dev": {

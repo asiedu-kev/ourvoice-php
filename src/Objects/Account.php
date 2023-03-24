@@ -18,4 +18,6 @@ class Account extends Base
    public $settings;
    public $country;
    public $timezone;
+    public $city;
+    public $region;
 }
