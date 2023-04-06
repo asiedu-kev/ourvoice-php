@@ -1,0 +1,5 @@
+
+U	php:S1131."@Remove the useless trailing whitespaces at the end of this line.(è±Ö
+kphp:S100_"RRename function "unparse_url" to match the regular expression ^[a-z][a-zA-Z0-9]*$.(Ğ²ĞÍúÿÿÿÿ
+Y	php:S1784_"?Explicitly mention the visibility of this method "unparse_url".(Ğ²ĞÍúÿÿÿÿ
+3php:S113"'Add a new line at the end of this file.
