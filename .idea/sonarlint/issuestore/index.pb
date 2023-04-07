@@ -11,10 +11,6 @@ F
 src/Resources/Base.php,0/f/0f4e7a5efb8dbae7561a8755bef6b58b9e0ce54f
 J
 src/Resources/Campaign.php,5/8/58fa22c60460cb52d84ae392efdda25982958ade
-=
-composer.json,3/9/3957b91a0d8450cea0115cfd5af69eac90d75897
-I
-src/Common/HttpClient.php,a/3/a381ff1f2a909f9e4e4e3388ce7b4c627cce4c3c
 X
 (src/Exceptions/AuthenticateException.php,9/b/9be141299b6459c0729d77574dda3438658aab62
 T
@@ -39,3 +35,5 @@ F
 src/Objects/Number.php,c/b/cb0dd1746a3c7a2c99e4b6ce1eb482e47ab7ea19
 M
 src/Objects/NumberRequest.php,8/9/891a3e1b8176a8cc1c48bb8fda48eb0b5200dcd7
+D
+src/Objects/Plan.php,1/5/152f7d56e4045e386c013c5f1e23d82f527c3fc2
