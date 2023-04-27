@@ -6,16 +6,16 @@ use Ourvoice\Sdk\Common;
 use Ourvoice\Sdk\Objects;
 
 /**
- * Class Condition
+ * Class ApiKeys
  *
  * @package Ourvoice\Sdk\Resources
  */
-class Condition extends Base
+class ApiKeys extends Base
 {
     public function __construct(Common\HttpClient $httpClient)
     {
-        $this->object = new Objects\Condition();
-        $this->setResourceName('conditions');
+        $this->object = new Objects\ApiKey();
+        $this->setResourceName('api-keys');
 
         parent::__construct($httpClient);
     }

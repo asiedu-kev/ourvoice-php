@@ -3,7 +3,7 @@
 namespace Ourvoice\Sdk\Objects;
 
 /**
- * Class User
+ * Class Users
  *
  * @package Ourvoice\Sdk\Objects
  */

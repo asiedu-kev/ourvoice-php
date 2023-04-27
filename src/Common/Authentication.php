@@ -9,13 +9,13 @@ namespace Ourvoice\Sdk\Common;
  */
 class Authentication
 {
-    public $accessKey;
+    public $accessToken;
 
     /**
-     * @param mixed $accessKey
+     * @param mixed $accessToken
      */
-    public function __construct($accessKey)
+    public function __construct($accessToken)
     {
-        $this->accessKey = $accessKey;
+        $this->accessToken = $accessToken;
     }
 }

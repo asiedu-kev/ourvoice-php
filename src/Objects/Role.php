@@ -3,7 +3,7 @@
 namespace Ourvoice\Sdk\Objects;
 
 /**
- * Class Role
+ * Class Roles
  *
  * @package Ourvoice\Sdk\Objects
  */

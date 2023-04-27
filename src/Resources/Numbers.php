@@ -6,16 +6,16 @@ use Ourvoice\Sdk\Common;
 use Ourvoice\Sdk\Objects;
 
 /**
- * Class ApiKey
+ * Class Account
  *
  * @package Ourvoice\Sdk\Resources
  */
-class ApiKey extends Base
+class Numbers extends Base
 {
     public function __construct(Common\HttpClient $httpClient)
     {
-        $this->object = new Objects\ApiKey();
-        $this->setResourceName('api-keys');
+        $this->object = new Objects\Number();
+        $this->setResourceName('numbers');
 
         parent::__construct($httpClient);
     }

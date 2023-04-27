@@ -20,5 +20,5 @@ class BaseList extends Base
         'last' => null,
     ];
 
-    public $items = [];
+    public $data = [];
 }

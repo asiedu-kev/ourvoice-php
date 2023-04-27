@@ -6,16 +6,16 @@ use Ourvoice\Sdk\Common;
 use Ourvoice\Sdk\Objects;
 
 /**
- * Class User
+ * Class Campaign
  *
  * @package Ourvoice\Sdk\Resources
  */
-class User extends Base
+class Campaigns extends Base
 {
     public function __construct(Common\HttpClient $httpClient)
     {
-        $this->object = new Objects\User();
-        $this->setResourceName('users');
+        $this->object = new Objects\Campaign();
+        $this->setResourceName('campaigns');
 
         parent::__construct($httpClient);
     }

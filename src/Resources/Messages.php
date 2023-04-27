@@ -6,16 +6,16 @@ use Ourvoice\Sdk\Common;
 use Ourvoice\Sdk\Objects;
 
 /**
- * Class Role
+ * Class Messages
  *
  * @package Ourvoice\Sdk\Resources
  */
-class Role extends Base
+class Messages extends Base
 {
     public function __construct(Common\HttpClient $httpClient)
     {
-        $this->object = new Objects\Role();
-        $this->setResourceName('roles');
+        $this->object = new Objects\Message();
+        $this->setResourceName('messages');
 
         parent::__construct($httpClient);
     }

@@ -10,12 +10,12 @@ use Ourvoice\Sdk\Objects;
  *
  * @package Ourvoice\Sdk\Resources
  */
-class Account extends Base
+class Voices extends Base
 {
     public function __construct(Common\HttpClient $httpClient)
     {
-        $this->object = new Objects\Account();
-        $this->setResourceName('account');
+        $this->object = new Objects\Voice();
+        $this->setResourceName('voices');
 
         parent::__construct($httpClient);
     }

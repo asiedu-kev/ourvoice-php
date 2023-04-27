@@ -121,11 +121,11 @@ class HttpClient
         }
 
         $headers = [
-            'User-agent: ' . implode(' ', $this->userAgent),
+            'Users-agent: ' . implode(' ', $this->userAgent),
             'Accept: application/json',
             'Content-Type: application/json',
             'Accept-Charset: utf-8',
-            sprintf('Authorization: Bearer %s', $this->authentication->accessKey),
+            sprintf('Authorization: Bearer %s', $this->authentication->accessToken),
         ];
 
         $headers = array_merge($headers, $this->headers);

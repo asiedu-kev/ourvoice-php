@@ -3,7 +3,7 @@
 namespace Ourvoice\Sdk\Objects;
 
 /**
- * Class Media
+ * Class Medias
  *
  * @package Ourvoice\Sdk\Objects
  */

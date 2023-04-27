@@ -3,11 +3,11 @@
 namespace Ourvoice\Sdk\Objects;
 
 /**
- * Class Voice
+ * Class Transaction
  *
  * @package Ourvoice\Sdk\Objects
  */
-class Voice extends Base
+class Transaction extends Base
 {
 
 }

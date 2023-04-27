@@ -10,7 +10,7 @@ use Ourvoice\Sdk\Objects;
  *
  * @package Ourvoice\Sdk\Resources
  */
-class Invitation extends Base
+class Invitations extends Base
 {
     public function __construct(Common\HttpClient $httpClient)
     {

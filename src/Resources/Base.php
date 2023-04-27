@@ -123,21 +123,21 @@ class Base
         if ($status === 200) {
             $body = json_decode($body, null, 512, \JSON_THROW_ON_ERROR);
 
-            $items = $body->items;
-            unset($body->items);
+            $data = $body->data;
+            unset($body->data);
 
             $baseList = new Objects\BaseList();
             $baseList->loadFromArray($body);
 
             $objectName = $this->object;
 
-            $baseList->items = [];
+            $baseList->data = [];
 
-            if ($items === null) {
+            if ($data === null) {
                 return $baseList;
             }
 
-            foreach ($items as $item) {
+            foreach ($data as $item) {
                 
                 $object = new $objectName($this->httpClient);
 

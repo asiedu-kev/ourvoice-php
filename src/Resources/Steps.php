@@ -6,16 +6,16 @@ use Ourvoice\Sdk\Common;
 use Ourvoice\Sdk\Objects;
 
 /**
- * Class Media
+ * Class Account
  *
  * @package Ourvoice\Sdk\Resources
  */
-class Media extends Base
+class Steps extends Base
 {
     public function __construct(Common\HttpClient $httpClient)
     {
-        $this->object = new Objects\Media();
-        $this->setResourceName('medias');
+        $this->object = new Objects\Step();
+        $this->setResourceName('steps');
 
         parent::__construct($httpClient);
     }

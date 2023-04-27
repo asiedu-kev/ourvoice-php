@@ -11,11 +11,10 @@ use Ourvoice\Sdk\Common\HttpClient;
  */
 class Client
 {
-    public const ENDPOINT = 'https://staging.getourvoice.com/api/v1/';
+    public const ENDPOINT = 'https://staging.getourvoice.com/api/v1';
     
     const CLIENT_VERSION = '3.1.2';
 
-    
     /**
      * @var Resources\Contacts
      */
@@ -30,7 +29,7 @@ class Client
     public $accounts;
 
     /**
-     * @var Resources\Role
+     * @var Resources\Roles
      */
     public $roles;
 
@@ -50,7 +49,7 @@ class Client
     public $action_conditions;
 
     /**
-     * @var Resources\ApiKey
+     * @var Resources\ApiKeys
      */
     public $apikeys;
     
@@ -60,23 +59,23 @@ class Client
     public $campaigns;
 
     /**
-     * @var Resources\Invitation
+     * @var Resources\Invitations
      */
     public $invitations;
 
     /**
-     * @var Resources\Media
+     * @var Resources\Medias
      */
     public $medias;
 
     /**
-     * @var Resources\Message
+     * @var Resources\Messages
      */
     public $messages;
 
 
       /**
-     * @var Resources\User
+     * @var Resources\Users
      */
     public $users;
     
@@ -109,16 +108,16 @@ class Client
         $this->accounts = new Resources\Account($this->httpClient);
         $this->contacts = new Resources\Contacts($this->httpClient);
         $this->groups = new Resources\Groups($this->httpClient);
-        $this->roles = new Resources\Role($this->httpClient);
+        $this->roles = new Resources\Roles($this->httpClient);
         $this->actions = new Resources\Action($this->httpClient);
         $this->conditions = new Resources\Condition($this->httpClient);
         $this->action_conditions = new Resources\ActionCondition($this->httpClient);
-        $this->apikeys = new Resources\ApiKey($this->httpClient);
+        $this->apikeys = new Resources\ApiKeys($this->httpClient);
         $this->campaigns = new Resources\Campaign($this->httpClient);
-        $this->invitations = new Resources\Invitation($this->httpClient);
-        $this->medias = new Resources\Media($this->httpClient);
-        $this->messages = new Resources\Message($this->httpClient);
-        $this->users = new Resources\User($this->httpClient);
+        $this->invitations = new Resources\Invitations($this->httpClient);
+        $this->medias = new Resources\Medias($this->httpClient);
+        $this->messages = new Resources\Messages($this->httpClient);
+        $this->users = new Resources\Users($this->httpClient);
     }
 
     private function getPhpVersion(): string

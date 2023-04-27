@@ -3,7 +3,7 @@
 namespace Ourvoice\Sdk\Objects;
 
 /**
- * Class ApiKey
+ * Class ApiKeys
  *
  * @package Ourvoice\Sdk\Objects
  */
