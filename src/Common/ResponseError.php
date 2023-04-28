@@ -1,8 +1,8 @@
 <?php
 
-namespace Ourvoice\Sdk\Common;
+namespace Ourvoice\Common;
 
-use Ourvoice\Sdk\Exceptions;
+use Ourvoice\Exceptions;
 
 /**
  * Class ResponseError

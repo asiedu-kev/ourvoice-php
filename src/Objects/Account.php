@@ -1,11 +1,11 @@
 <?php
 
-namespace Ourvoice\Sdk\Objects;
+namespace Ourvoice\Objects;
 
 /**
  * Class Account
  *
- * @package Ourvoice\Sdk\Objects
+ * @package Ourvoice\Objects
  */
 class Account extends Base
 {

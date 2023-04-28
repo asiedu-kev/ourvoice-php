@@ -1,6 +1,6 @@
 <?php
 
-namespace Ourvoice\Sdk\Objects;
+namespace Ourvoice\Objects;
 
 /**
  * Class Campaign

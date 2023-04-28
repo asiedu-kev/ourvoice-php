@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Ourvoice\Sdk;
+namespace Ourvoice;
 
 
 class Values implements \ArrayAccess {
-    public const NONE = 'Ourvoice\Sdk\\Values\\NONE';
+    public const NONE = 'Ourvoice\\Values\\NONE';
     public const ARRAY_NONE = [self::NONE];
 
     protected $options;

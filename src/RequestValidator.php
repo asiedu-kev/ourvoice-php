@@ -1,8 +1,8 @@
 <?php
 
-namespace Ourvoice\Sdk;
+namespace Ourvoice;
 
-use Ourvoice\Sdk\Values;
+use Ourvoice\Values;
 
 
 class RequestValidator {

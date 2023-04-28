@@ -1,6 +1,6 @@
 <?php
 
-namespace Ourvoice\Sdk\Common;
+namespace Ourvoice\Common;
 
 /**
  * Class Authentication

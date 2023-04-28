@@ -1,6 +1,6 @@
 <?php
 
-namespace Ourvoice\Sdk\Exceptions;
+namespace Ourvoice\Exceptions;
 
 /**
  * Class ValidationException

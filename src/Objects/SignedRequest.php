@@ -1,6 +1,6 @@
 <?php
 
-namespace Ourvoice\Sdk\Objects;
+namespace Ourvoice\Objects;
 
 use Ourvoice\Sdk\Exceptions\ValidationException;
 use Ourvoice\Sdk\RequestValidator;

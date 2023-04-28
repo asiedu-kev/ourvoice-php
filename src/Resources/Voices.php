@@ -1,9 +1,9 @@
 <?php
 
-namespace Ourvoice\Sdk\Resources;
+namespace Ourvoice\Resources;
 
-use Ourvoice\Sdk\Common;
-use Ourvoice\Sdk\Objects;
+use Ourvoice\Common;
+use Ourvoice\Objects;
 
 /**
  * Class Account

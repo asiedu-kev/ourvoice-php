@@ -1,11 +1,11 @@
 <?php
 
-namespace Ourvoice\Sdk\Resources;
+namespace Ourvoice\Resources;
 
-use Ourvoice\Sdk\Common;
-use Ourvoice\Sdk\Common\HttpClient;
-use Ourvoice\Sdk\Exceptions;
-use Ourvoice\Sdk\Objects;
+use Ourvoice\Common\HttpClient;
+use Ourvoice\Common;
+use Ourvoice\Exceptions;
+use Ourvoice\Objects;
 
 /**
  * Class Base

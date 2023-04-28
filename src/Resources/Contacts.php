@@ -1,12 +1,9 @@
 <?php
 
-namespace Ourvoice\Sdk\Resources;
+namespace Ourvoice\Resources;
 
-use InvalidArgumentException;
-use Ourvoice\Sdk\Common;
-use Ourvoice\Sdk\Exceptions;
-use Ourvoice\Sdk\Objects;
-use Ourvoice\Sdk\Resources\Messages;
+use Ourvoice\Common;
+use Ourvoice\Objects;
 
 /**
  * Class Contacts

@@ -1,10 +1,9 @@
 <?php
 
-namespace Ourvoice\Sdk\Common;
+namespace Ourvoice\Common;
 
 use InvalidArgumentException;
-use Ourvoice\Sdk\Common;
-use Ourvoice\Sdk\Exceptions;
+use Ourvoice\Exceptions;
 
 /**
  * Class HttpClient
@@ -92,7 +91,7 @@ class HttpClient
         $this->userAgent[] = $userAgent;
     }
 
-    public function setAuthentication(Common\Authentication $authentication): void
+    public function setAuthentication(Authentication $authentication): void
     {
         $this->authentication = $authentication;
     }

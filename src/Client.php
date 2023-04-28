@@ -1,8 +1,8 @@
 <?php
 
-namespace Ourvoice\Sdk;
+namespace Ourvoice;
 
-use Ourvoice\Sdk\Common\HttpClient;
+use Ourvoice\Common\HttpClient;
 
 /**
  * Class Client
@@ -144,25 +144,33 @@ class Client
            
         }
 
-        $this->httpClient->addUserAgentString('Ourvoice\Sdk/ApiClient/' . self::CLIENT_VERSION);
+        $this->httpClient->addUserAgentString('Ourvoice/ApiClient/' . self::CLIENT_VERSION);
         $this->httpClient->addUserAgentString($this->getPhpVersion());
 
         if ($accessKey !== null) {
             $this->setAccessKey($accessKey);
         }
-        $this->accounts = new Resources\Account($this->httpClient);
-        $this->contacts = new Resources\Contacts($this->httpClient);
-        $this->groups = new Resources\Groups($this->httpClient);
-        $this->roles = new Resources\Roles($this->httpClient);
-        $this->actions = new Resources\Action($this->httpClient);
-        $this->conditions = new Resources\Condition($this->httpClient);
-        $this->action_conditions = new Resources\ActionCondition($this->httpClient);
+        $this->account = new Resources\Account($this->httpClient);
         $this->apikeys = new Resources\ApiKeys($this->httpClient);
-        $this->campaigns = new Resources\Campaign($this->httpClient);
+        $this->campaigns = new Resources\Campaigns($this->httpClient);
+        $this->contacts = new Resources\Contacts($this->httpClient);
+        $this->edges = new Resources\Edges($this->httpClient);
+        $this->flowExecutions = new Resources\FlowExecutions($this->httpClient);
+        $this->groups = new Resources\Groups($this->httpClient);
         $this->invitations = new Resources\Invitations($this->httpClient);
         $this->medias = new Resources\Medias($this->httpClient);
         $this->messages = new Resources\Messages($this->httpClient);
+        $this->numberRequests = new Resources\NumberRequests($this->httpClient);
+        $this->numbers = new Resources\Numbers($this->httpClient);
+        $this->plans = new Resources\Plans($this->httpClient);
+        $this->roles = new Resources\Roles($this->httpClient);
+        $this->senders = new Resources\Senders($this->httpClient);
+        $this->steps = new Resources\Steps($this->httpClient);
+        $this->subscriptions = new Resources\Subscriptions($this->httpClient);
+        $this->transactions = new Resources\Transactions($this->httpClient);
         $this->users = new Resources\Users($this->httpClient);
+        $this->voices = new Resources\Voices($this->httpClient);
+        $this->webhooks = new Resources\Webhooks($this->httpClient);
     }
 
     private function getPhpVersion(): string
@@ -181,9 +189,6 @@ class Client
     public function setAccessKey($accessKey): void
     {
         $authentication = new Common\Authentication($accessKey);
-
-        
         $this->httpClient->setAuthentication($authentication);
-       
     }
 }
