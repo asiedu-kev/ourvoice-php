@@ -3,10 +3,10 @@
 namespace Tests\Integration\Groups;
 
 
-use  Ourvoice\Sdk\Exceptions\ServerException;
-use  Ourvoice\Sdk\Objects\Group;
+use  Ourvoice\Exceptions\ServerException;
+use  Ourvoice\Objects\Group;
 use Tests\Integration\BaseTest;
-use  Ourvoice\Sdk\Objects\Account;
+use  Ourvoice\Objects\Account;
 
 class GroupTest extends BaseTest
 {

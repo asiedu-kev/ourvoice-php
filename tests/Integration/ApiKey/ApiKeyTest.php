@@ -2,11 +2,11 @@
 
 namespace Tests\Integration\ApiKey;
 
-use Ourvoice\Sdk\Exceptions\ServerException;
-use  Ourvoice\Sdk\Common\HttpClient;
+use Ourvoice\Exceptions\ServerException;
+use  Ourvoice\Common\HttpClient;
 use Tests\Integration\BaseTest;
-use  Ourvoice\Sdk\Objects\ApiKey;
-use  Ourvoice\Sdk\Objects\Account;
+use  Ourvoice\Objects\ApiKey;
+use  Ourvoice\Objects\Account;
 
 class ApiKeyTest extends BaseTest
 {

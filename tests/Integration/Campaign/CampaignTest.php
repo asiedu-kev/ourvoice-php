@@ -2,13 +2,13 @@
 
 namespace Tests\Integration\Campaign;
 
-use Ourvoice\Sdk\Exceptions\ServerException;
-use  Ourvoice\Sdk\Common\HttpClient;
+use Ourvoice\Exceptions\ServerException;
+use  Ourvoice\Common\HttpClient;
 use Tests\Integration\BaseTest;
-use  Ourvoice\Sdk\Objects\Campaign;
-use  Ourvoice\Sdk\Objects\Account;
-use  Ourvoice\Sdk\Objects\Group;
-use  Ourvoice\Sdk\Objects\Message;
+use  Ourvoice\Objects\Campaign;
+use  Ourvoice\Objects\Account;
+use  Ourvoice\Objects\Group;
+use  Ourvoice\Objects\Message;
 
 class CampaignTest extends BaseTest
 {

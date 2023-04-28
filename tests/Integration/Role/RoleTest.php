@@ -2,9 +2,9 @@
 
 namespace Tests\Integration\Role;
 
-use Ourvoice\Sdk\Exceptions\ServerException;
-use  Ourvoice\Sdk\Common\HttpClient;
-use  Ourvoice\Sdk\Objects\Role;
+use Ourvoice\Exceptions\ServerException;
+use  Ourvoice\Common\HttpClient;
+use  Ourvoice\Objects\Role;
 use Tests\Integration\BaseTest;
 
 class RoleTest extends BaseTest

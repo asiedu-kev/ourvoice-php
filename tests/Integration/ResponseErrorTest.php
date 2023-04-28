@@ -2,8 +2,8 @@
 
 namespace Tests\Integration;
 
-use Ourvoice\Sdk\Common\ResponseError;
-use Ourvoice\Sdk\Exceptions\OurvoiceException;
+use Ourvoice\Common\ResponseError;
+use Ourvoice\Exceptions\OurvoiceException;
 
 class ResponseErrorTest extends BaseTest
 {

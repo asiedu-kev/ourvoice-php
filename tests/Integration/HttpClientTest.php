@@ -3,9 +3,9 @@
 namespace Tests\Integration;
 
 use InvalidArgumentException;
-use Ourvoice\Sdk\Client;
-use Ourvoice\Sdk\Common\HttpClient;
-use Ourvoice\Sdk\Exceptions\AuthenticateException;
+use Ourvoice\Client;
+use Ourvoice\Common\HttpClient;
+use Ourvoice\Exceptions\AuthenticateException;
 use stdClass;
 
 class HttpClientTest extends BaseTest

@@ -2,11 +2,12 @@
 
 namespace Tests\Integration;
 
-use Ourvoice\Sdk\Client;
-use Ourvoice\Sdk\Common\HttpClient;
-use Ourvoice\Sdk\Objects\Account;
+use Ourvoice\Client;
+use Ourvoice\Common\HttpClient;
+use Ourvoice\Objects\Account;
 
-use Ourvoice\Sdk\Resources\Campaign;
+use Ourvoice\Objects\Campaign;
+use Ourvoice\Resources\Campaigns;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
@@ -20,8 +21,8 @@ class BaseTest extends TestCase
 
     public function testClientConstructor(): void
     {
-        $ourvoiceSdk = new Client('YOUR_ACCESS_KEY');
-        self::assertInstanceOf(Campaign::class, $ourvoiceSdk->campaigns);
+        $ourvoice = new Client('YOUR_ACCESS_KEY');
+        self::assertInstanceOf(Campaign::class, $ourvoice->campaigns);
     }
 
     public function testHttpClientMock(): void

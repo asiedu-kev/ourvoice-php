@@ -2,11 +2,11 @@
 
 namespace Tests\Integration\Contacts;
 
-use  Ourvoice\Sdk\Common\HttpClient;
-use  Ourvoice\Sdk\Exceptions\ServerException;
-use  Ourvoice\Sdk\Objects\BaseList;
-use  Ourvoice\Sdk\Objects\Contact;
-use  Ourvoice\Sdk\Objects\Account;
+use  Ourvoice\Common\HttpClient;
+use  Ourvoice\Exceptions\ServerException;
+use  Ourvoice\Objects\BaseList;
+use  Ourvoice\Objects\Contact;
+use  Ourvoice\Objects\Account;
 use Tests\Integration\BaseTest;
 
 class ContactTest extends BaseTest

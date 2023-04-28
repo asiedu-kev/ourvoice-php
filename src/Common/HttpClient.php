@@ -31,7 +31,7 @@ class HttpClient
     protected $userAgent = [];
 
     /**
-     * @var Common\Authentication
+     * @var Authentication
      */
     protected $authentication;
 

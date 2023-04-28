@@ -2,11 +2,11 @@
 
 namespace Tests\Integration\Invitation;
 
-use Ourvoice\Sdk\Exceptions\ServerException;
-use  Ourvoice\Sdk\Common\HttpClient;
-use  Ourvoice\Sdk\Objects\Account;
-use  Ourvoice\Sdk\Objects\Role;
-use  Ourvoice\Sdk\Objects\Invitation;
+use Ourvoice\Exceptions\ServerException;
+use  Ourvoice\Common\HttpClient;
+use  Ourvoice\Objects\Account;
+use  Ourvoice\Objects\Role;
+use  Ourvoice\Objects\Invitation;
 use Tests\Integration\BaseTest;
 
 class InvitationTest extends BaseTest

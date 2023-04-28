@@ -36,7 +36,7 @@ class ResponseError
                 }
 
                 if ($error->code === self::NOT_ENOUGH_CREDIT) {
-                    throw new Exceptions\BalanceException($this->getExceptionMessage($error));
+                    throw new Exceptions\ServerException($this->getExceptionMessage($error));
                 } elseif ($error->code === self::REQUEST_NOT_ALLOWED) {
                     throw new Exceptions\AuthenticateException($this->getExceptionMessage($error));
                 }

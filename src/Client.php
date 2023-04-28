@@ -7,7 +7,7 @@ use Ourvoice\Common\HttpClient;
 /**
  * Class Client
  *
- * @package Ourvoice\Sdk
+ * @package Ourvoice
  */
 class Client
 {

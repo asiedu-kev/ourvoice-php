@@ -2,11 +2,11 @@
 
 namespace Tests\Integration\Message;
 
-use Ourvoice\Sdk\Exceptions\ServerException;
-use  Ourvoice\Sdk\Common\HttpClient;
+use Ourvoice\Exceptions\ServerException;
+use  Ourvoice\Common\HttpClient;
 use Tests\Integration\BaseTest;
-use  Ourvoice\Sdk\Objects\Account;
-use  Ourvoice\Sdk\Objects\Message;
+use  Ourvoice\Objects\Account;
+use  Ourvoice\Objects\Message;
 
 
 class MessageTest extends BaseTest

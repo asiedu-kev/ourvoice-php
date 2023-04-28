@@ -2,10 +2,10 @@
 
 namespace Tests\Integration\Account;
 
-use Ourvoice\Sdk\Exceptions\ServerException;
+use Ourvoice\Exceptions\ServerException;
 use Tests\Integration\BaseTest;
-use  Ourvoice\Sdk\Objects\User;
-use  Ourvoice\Sdk\Objects\Account;
+use  Ourvoice\Objects\User;
+use  Ourvoice\Objects\Account;
 
 class AccountTest extends BaseTest
 {
