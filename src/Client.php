@@ -149,6 +149,8 @@ class Client
 
         if ($accessKey !== null) {
             $this->setAccessKey($accessKey);
+        }else{
+            throw new Exceptions\AuthenticateException("You must provide your Key");
         }
         $this->account = new Resources\Account($this->httpClient);
         $this->apikeys = new Resources\ApiKeys($this->httpClient);
