@@ -26,7 +26,7 @@ class Client
      /**
      * @var Resources\Account
      */
-    public $accounts;
+    public $account;
 
     /**
      * @var Resources\Roles
@@ -34,19 +34,19 @@ class Client
     public $roles;
 
     /**
-     * @var Resources\Action
+     * @var Resources\Edges
      */
-    public $actions;
+    public $edges;
     
     /**
-     * @var Resources\Condition
+     * @var Resources\FlowExecutions
      */
-    public $conditions;
+    public $flowExecutions;
 
     /**
-     * @var Resources\ActionCondition
+     * @var Resources\Flows
      */
-    public $action_conditions;
+    public $flows;
 
     /**
      * @var Resources\ApiKeys
@@ -54,7 +54,7 @@ class Client
     public $apikeys;
     
     /**
-     * @var Resources\Campaign
+     * @var Resources\Campaigns
      */
     public $campaigns;
 
@@ -78,6 +78,51 @@ class Client
      * @var Resources\Users
      */
     public $users;
+
+    /**
+     * @var Resources\Transactions
+     */
+    public $transactions;
+
+    /**
+     * @var Resources\Webhooks
+     */
+    public $webhooks;
+
+    /**
+     * @var Resources\NumberRequests
+     */
+    public $numberRequests;
+
+    /**
+     * @var Resources\Numbers
+     */
+    public $numbers;
+
+    /**
+     * @var Resources\Plans
+     */
+    public $plans;
+
+    /**
+     * @var Resources\Senders
+     */
+    public $senders;
+
+    /**
+     * @var Resources\Steps
+     */
+    public $steps;
+
+    /**
+     * @var Resources\Subscriptions
+     */
+    public $subscriptions;
+
+    /**
+     * @var Resources\Voices
+     */
+    public $voices;
     
     protected $endpoint = self::ENDPOINT;
     /**
