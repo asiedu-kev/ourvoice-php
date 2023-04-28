@@ -2,6 +2,7 @@
     "name": "shadonet/ourvoice-php",
     "description": "Ourvoice Api REST API client for php",
     "type": "library",
+    "version": "1.0.0-dev",
     "license": "MIT",
     "require": {
         "php": ">=7.4"
