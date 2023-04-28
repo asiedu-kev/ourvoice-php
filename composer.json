@@ -1,5 +1,5 @@
 {
-    "name": "ourvoice/php",
+    "name": "shadonet/ourvoice-php",
     "description": "Ourvoice Api REST API client for php",
     "type": "library",
     "license": "MIT",
