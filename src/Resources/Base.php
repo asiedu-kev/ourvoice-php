@@ -69,17 +69,17 @@ class Base
     public function create($object, ?array $query = null)
     {
         $body = json_encode($object, \JSON_THROW_ON_ERROR);
-        [, , $body] = $this->httpClient->performHttpRequest(
+        [$status, , $body] = $this->httpClient->performHttpRequest(
             HttpClient::REQUEST_POST,
             $this->resourceName,
             $query,
             $body
         );
-        return $this->processRequest($body);
+        return $this->processRequest($status,$body);
     }
 
 
-    public function processRequest(?string $body)
+    public function processRequest(?string $status,?string $body)
     {
         if ($body === null) {
             throw new Exceptions\ServerException('Got an invalid JSON response from the server.');
@@ -148,15 +148,15 @@ class Base
             return $baseList;
         }
 
-        return $this->processRequest($body);
+        return $this->processRequest($status,$body);
     }
 
    
     public function read($id = null)
     {
         $resourceName = $this->resourceName . (($id) ? '/' . $id : null);
-        [, , $body] = $this->httpClient->performHttpRequest(HttpClient::REQUEST_GET, $resourceName);
-        return $this->processRequest($body);
+        [$status, , $body] = $this->httpClient->performHttpRequest(HttpClient::REQUEST_GET, $resourceName);
+        return $this->processRequest($status,$body);
     }
 
   
@@ -169,7 +169,7 @@ class Base
             return true;
         }
 
-        return $this->processRequest($body);
+        return $this->processRequest($status,$body);
     }
 
     
@@ -186,13 +186,13 @@ class Base
         $resourceName = $this->resourceName . ($id ? '/' . $id : null);
         $body = json_encode($body, \JSON_THROW_ON_ERROR);
 
-        [, , $body] = $this->httpClient->performHttpRequest(
+        [$status, , $body] = $this->httpClient->performHttpRequest(
             HttpClient::REQUEST_PUT,
             $resourceName,
             false,
             $body
         );
-        return $this->processRequest($body);
+        return $this->processRequest($status,$body);
     }
 
     public function getHttpClient(): HttpClient

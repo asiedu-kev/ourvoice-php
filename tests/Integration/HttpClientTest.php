@@ -48,7 +48,7 @@ class HttpClientTest extends BaseTest
     public function testHttpClientWithoutAuthenticationException(): void
     {
         $this->expectException(AuthenticateException::class);
-        $this->expectExceptionMessage('Can not erform API Request without Authentication');
+        $this->expectExceptionMessage('Can not perform API Request without Authentication');
         $client = new HttpClient(Client::ENDPOINT);
         $client->performHttpRequest('foo', 'bar');
     }

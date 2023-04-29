@@ -15,7 +15,7 @@ class Account extends Base
     public function __construct(Common\HttpClient $httpClient)
     {
         $this->object = new Objects\Account();
-        $this->setResourceName('account');
+        $this->setResourceName('accounts');
 
         parent::__construct($httpClient);
     }

@@ -4,7 +4,7 @@ namespace Tests\Integration;
 
 use Ourvoice\Client;
 use Ourvoice\Common\HttpClient;
-use Ourvoice\Objects\Account;
+use Ourvoice\Resources\Account;
 
 use Ourvoice\Objects\Campaign;
 use Ourvoice\Resources\Campaigns;
@@ -22,7 +22,7 @@ class BaseTest extends TestCase
     public function testClientConstructor(): void
     {
         $ourvoice = new Client('YOUR_ACCESS_KEY');
-        self::assertInstanceOf(Campaign::class, $ourvoice->campaigns);
+        self::assertInstanceOf(Account::class, $ourvoice->account);
     }
 
     public function testHttpClientMock(): void

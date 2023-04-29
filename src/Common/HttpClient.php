@@ -115,7 +115,7 @@ class HttpClient
     {
         $curl = curl_init();
 
-        if ($this->authentication->accessToken === null) {
+        if ($this->authentication === null) {
             throw new Exceptions\AuthenticateException('Can not perform API Request without Authentication');
         }
 
