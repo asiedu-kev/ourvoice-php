@@ -7,7 +7,7 @@ use Ourvoice\Exceptions;
 /**
  * Class ResponseError
  *
- * @package Ourvoice\Sdk\Common
+ * @package Ourvoice\Common
  */
 class ResponseError
 {
@@ -15,7 +15,7 @@ class ResponseError
 
     public const SUCCESS = 1;
 
-    public const REQUEST_NOT_ALLOWED = 2;
+    public const REQUEST_NOT_AUTHENTICATED = 401;
 
     public const MISSING_PARAMS = 9;
     public const INVALID_PARAMS = 10;
@@ -26,40 +26,24 @@ class ResponseError
 
     public $errors = [];
 
-    public function __construct($body)
+    public function __construct($code,$body)
     {
-        if (!empty($body->errors)) {
-            foreach ($body->errors as $error) {
-                if (!empty($error->message)) {
-                    $error->description = $error->message;
-                    unset($error->message);
-                }
-
-                if ($error->code === self::NOT_ENOUGH_CREDIT) {
-                    throw new Exceptions\ServerException($this->getExceptionMessage($error));
-                } elseif ($error->code === self::REQUEST_NOT_ALLOWED) {
+            foreach ($body as $error) {
+                if ((int)$code === self::REQUEST_NOT_AUTHENTICATED ) {
                     throw new Exceptions\AuthenticateException($this->getExceptionMessage($error));
                 }
-
                 $this->errors[] = $error;
             }
-        }
     }
 
     private function getExceptionMessage($error)
     {
-        return sprintf(self::EXCEPTION_MESSAGE, $error->description);
+        return sprintf(self::EXCEPTION_MESSAGE, $error);
     }
 
 
     public function getErrorString()
     {
-        $errorDescriptions = [];
-
-        foreach ($this->errors as $error) {
-            $errorDescriptions[] = $error->description;
-        }
-
-        return implode(', ', $errorDescriptions);
+        return implode(', ', $this->errors);
     }
 }

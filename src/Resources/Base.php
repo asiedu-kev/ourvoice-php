@@ -19,13 +19,13 @@ class Base
      */
     protected $httpClient;
 
-    
+
     protected $resourceName;
 
-    
+
     protected $object;
 
-    
+
     protected $responseObject;
 
     public function __construct(HttpClient $httpClient)
@@ -44,7 +44,7 @@ class Base
         $this->resourceName = $resourceName;
     }
 
-    
+
     public function getObject()
     {
         return $this->object;
@@ -65,7 +65,7 @@ class Base
         $this->responseObject = $responseObject;
     }
 
- 
+
     public function create($object, ?array $query = null)
     {
         $body = json_encode($object, \JSON_THROW_ON_ERROR);
@@ -84,34 +84,39 @@ class Base
         if ($body === null) {
             throw new Exceptions\ServerException('Got an invalid JSON response from the server.');
         }
+        else{
+            try {
+                $body = json_decode($body, null, 512, \JSON_THROW_ON_ERROR);
+                switch ($status){
+                    case '201':
+                    case '200':
+                    case '204':
+                        if ($this->responseObject) {
+                            return $this->responseObject->loadFromStdclass($body);
+                        }
 
-        try {
-            $body = json_decode($body, null, 512, \JSON_THROW_ON_ERROR);
-        } catch (\JsonException $e) {
-            throw new Exceptions\ServerException('Got an invalid JSON response from the server.');
-        }
+                        if (is_array($body)) {
+                            $parsed = [];
+                            foreach ($body as $b) {
+                                $parsed[] = $this->object->loadFromStdclass($body);
+                            }
+                            return $parsed;
+                        }
 
-        if (!empty($body->errors)) {
-            $responseError = new Common\ResponseError($body);
-            throw new Exceptions\RequestException($responseError->getErrorString());
-        }
-
-        if ($this->responseObject) {
-            return $this->responseObject->loadFromStdclass($body);
-        }
-        
-        if (is_array($body)) {
-            $parsed = [];
-            foreach ($body as $b) {
-                $parsed[] = $this->object->loadFromStdclass($b);
+                        return $this->object->loadFromStdclass($body);
+                        break;
+                    default:
+                        $responseError = new Common\ResponseError($status,$body->data);
+                        throw new Exceptions\RequestException($responseError->getErrorString());
+                        break;
+                }
+            } catch (\JsonException $e) {
+                throw new Exceptions\ServerException('Got an invalid JSON response from the server.');
             }
-            return $parsed;
         }
-
-        return $this->object->loadFromStdclass($body);
     }
 
-   
+
     public function getList(?array $parameters = [])
     {
         [$status, , $body] = $this->httpClient->performHttpRequest(
@@ -138,7 +143,7 @@ class Base
             }
 
             foreach ($data as $item) {
-                
+
                 $object = new $objectName($this->httpClient);
 
                 $message = $object->loadFromArray($item);
@@ -151,7 +156,7 @@ class Base
         return $this->processRequest($status,$body);
     }
 
-   
+
     public function read($id = null)
     {
         $resourceName = $this->resourceName . (($id) ? '/' . $id : null);
@@ -159,7 +164,7 @@ class Base
         return $this->processRequest($status,$body);
     }
 
-  
+
     public function delete($id)
     {
         $resourceName = $this->resourceName . '/' . $id;
@@ -172,7 +177,7 @@ class Base
         return $this->processRequest($status,$body);
     }
 
-    
+
     public function update($object, $id)
     {
         $objVars = get_object_vars($object);

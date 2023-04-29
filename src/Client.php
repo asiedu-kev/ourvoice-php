@@ -12,7 +12,7 @@ use Ourvoice\Common\HttpClient;
 class Client
 {
     public const ENDPOINT = 'https://staging.getourvoice.com/api/v1';
-    
+
     const CLIENT_VERSION = '3.1.2';
 
     /**
@@ -23,7 +23,7 @@ class Client
      * @var Resources\Groups
      */
     public $groups;
-     /**
+    /**
      * @var Resources\Account
      */
     public $account;
@@ -37,7 +37,7 @@ class Client
      * @var Resources\Edges
      */
     public $edges;
-    
+
     /**
      * @var Resources\FlowExecutions
      */
@@ -52,7 +52,7 @@ class Client
      * @var Resources\ApiKeys
      */
     public $apikeys;
-    
+
     /**
      * @var Resources\Campaigns
      */
@@ -74,7 +74,7 @@ class Client
     public $messages;
 
 
-      /**
+    /**
      * @var Resources\Users
      */
     public $users;
@@ -123,25 +123,25 @@ class Client
      * @var Resources\Voices
      */
     public $voices;
-    
+
     protected $endpoint = self::ENDPOINT;
     /**
      * @var Common\HttpClient
      */
     protected $httpClient;
 
-    
+
 
     public function __construct(?string $accessKey = null, Common\HttpClient $httpClient = null, array $config = [])
     {
         if ($httpClient === null) {
-           
+
             $this->httpClient = new Common\HttpClient(self::ENDPOINT);
-            
+
         } else {
-            
+
             $this->httpClient = $httpClient;
-           
+
         }
 
         $this->httpClient->addUserAgentString('Ourvoice/ApiClient/' . self::CLIENT_VERSION);
