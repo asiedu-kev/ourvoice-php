@@ -42,8 +42,10 @@ class MediaTest extends BaseTest
     public function testListMedia(): void
     {
         $this->expectException(ServerException::class);
-        $this->mockClient->expects(self::once())->method('performHttpRequest')->with("GET", 'medias', null, null);
-        $this->client->medias->read();
+        $this->mockClient->expects(self::once())->method('performHttpRequest')->with("GET", 'medias',
+            ['offset' => 100, 'limit' => 30],
+             null);
+        $this->client->medias->getList(['offset' => 100, 'limit' => 30]);
     }
 
     public function testViewMedia(): void

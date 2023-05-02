@@ -54,8 +54,10 @@ class CampaignTest extends BaseTest
     public function testListCampaign(): void
     {
         $this->expectException(ServerException::class);
-        $this->mockClient->expects(self::once())->method('performHttpRequest')->with("GET", 'campaigns', null, null);
-        $this->client->campaigns->read();
+        $this->mockClient->expects(self::once())->method('performHttpRequest')->with("GET", 'campaigns',
+            ['offset' => 100, 'limit' => 30],
+            null);
+        $this->client->campaigns->getList(['offset' => 100, 'limit' => 30]);
     }
 
     public function testViewCampaign(): void

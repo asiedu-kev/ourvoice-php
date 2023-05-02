@@ -36,8 +36,10 @@ class AccountTest extends BaseTest
     public function testListAccount(): void
     {
         $this->expectException(ServerException::class);
-        $this->mockClient->expects(self::once())->method('performHttpRequest')->with("GET", 'accounts', null, null);
-        $this->client->account->read();
+        $this->mockClient->expects(self::once())->method('performHttpRequest')->with("GET",
+            'accounts', ['offset' => 100, 'limit' => 30],
+            null);
+        $this->client->account->getList(['offset' => 100, 'limit' => 30]);
     }
 
     public function testViewAccount(): void

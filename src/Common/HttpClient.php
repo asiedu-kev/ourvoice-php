@@ -120,7 +120,7 @@ class HttpClient
         }
 
         $headers = [
-            'Users-agent: ' . implode(' ', $this->userAgent),
+            'User-Agent: ' . implode(' ', $this->userAgent),
             'Accept: application/json',
             'Content-Type: application/json',
             'Accept-Charset: utf-8',

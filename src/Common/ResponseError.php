@@ -13,16 +13,21 @@ class ResponseError
 {
     public const EXCEPTION_MESSAGE = 'Got error response from the server: %s';
 
-    public const SUCCESS = 1;
+    public const SUCCESS = 200;
+
+    public const NO_CONTENT = 204;
 
     public const REQUEST_NOT_AUTHENTICATED = 401;
 
-    public const MISSING_PARAMS = 9;
-    public const INVALID_PARAMS = 10;
+    public const MISSING_OR_INVALID_PARAMS = 422;
 
-    public const NOT_FOUND = 20;
+    public const NOT_FOUND = 404;
 
-    public const NOT_ENOUGH_CREDIT = 25;
+    public const NOT_ALLOWED = 403;
+
+    public const SERVICE_UNAVAILABLE = 405;
+
+    public const ERROR_SERVER = 500;
 
     public $errors = [];
 

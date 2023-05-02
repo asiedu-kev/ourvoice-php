@@ -13,7 +13,7 @@ class Client
 {
     public const ENDPOINT = 'https://staging.getourvoice.com/api/v1';
 
-    const CLIENT_VERSION = '3.1.2';
+    const CLIENT_VERSION = '1.0.0';
 
     /**
      * @var Resources\Contacts
@@ -29,39 +29,14 @@ class Client
     public $account;
 
     /**
-     * @var Resources\Roles
-     */
-    public $roles;
-
-    /**
-     * @var Resources\Edges
-     */
-    public $edges;
-
-    /**
-     * @var Resources\FlowExecutions
-     */
-    public $flowExecutions;
-
-    /**
      * @var Resources\Flows
      */
     public $flows;
 
     /**
-     * @var Resources\ApiKeys
-     */
-    public $apikeys;
-
-    /**
      * @var Resources\Campaigns
      */
     public $campaigns;
-
-    /**
-     * @var Resources\Invitations
-     */
-    public $invitations;
 
     /**
      * @var Resources\Medias
@@ -73,41 +48,15 @@ class Client
      */
     public $messages;
 
-
-    /**
-     * @var Resources\Users
-     */
-    public $users;
-
-    /**
-     * @var Resources\Transactions
-     */
-    public $transactions;
-
     /**
      * @var Resources\Webhooks
      */
     public $webhooks;
 
     /**
-     * @var Resources\NumberRequests
-     */
-    public $numberRequests;
-
-    /**
      * @var Resources\Numbers
      */
     public $numbers;
-
-    /**
-     * @var Resources\Plans
-     */
-    public $plans;
-
-    /**
-     * @var Resources\Senders
-     */
-    public $senders;
 
     /**
      * @var Resources\Steps
@@ -151,24 +100,15 @@ class Client
             $this->setAccessKey($accessKey);
         }
         $this->account = new Resources\Account($this->httpClient);
-        $this->apikeys = new Resources\ApiKeys($this->httpClient);
         $this->campaigns = new Resources\Campaigns($this->httpClient);
         $this->contacts = new Resources\Contacts($this->httpClient);
-        $this->edges = new Resources\Edges($this->httpClient);
-        $this->flowExecutions = new Resources\FlowExecutions($this->httpClient);
+       $this->flows = new Resources\Flows($this->httpClient);
         $this->groups = new Resources\Groups($this->httpClient);
-        $this->invitations = new Resources\Invitations($this->httpClient);
         $this->medias = new Resources\Medias($this->httpClient);
         $this->messages = new Resources\Messages($this->httpClient);
-        $this->numberRequests = new Resources\NumberRequests($this->httpClient);
         $this->numbers = new Resources\Numbers($this->httpClient);
-        $this->plans = new Resources\Plans($this->httpClient);
-        $this->roles = new Resources\Roles($this->httpClient);
-        $this->senders = new Resources\Senders($this->httpClient);
         $this->steps = new Resources\Steps($this->httpClient);
         $this->subscriptions = new Resources\Subscriptions($this->httpClient);
-        $this->transactions = new Resources\Transactions($this->httpClient);
-        $this->users = new Resources\Users($this->httpClient);
         $this->voices = new Resources\Voices($this->httpClient);
         $this->webhooks = new Resources\Webhooks($this->httpClient);
     }

@@ -46,8 +46,9 @@ class MessageTest extends BaseTest
     public function testListMessage(): void
     {
         $this->expectException(ServerException::class);
-        $this->mockClient->expects(self::once())->method('performHttpRequest')->with("GET", 'messages', null, null);
-        $this->client->messages->read();
+        $this->mockClient->expects(self::once())->method('performHttpRequest')->with("GET",
+            'messages', ['offset' => 100, 'limit' => 30], null);
+        $this->client->messages->getList(['offset' => 100, 'limit' => 30]);
     }
 
     public function testViewMessage(): void
