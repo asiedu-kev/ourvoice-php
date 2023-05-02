@@ -23,7 +23,7 @@ class CampaignTest extends BaseTest
         $campaign->repeat = "never";
         $campaign->start_date = "2000-01-01 00:00:00";
         $campaign->end_date = "2004-10-23 07:23:47";
-        $campaign->status = "seding";
+        $campaign->status = "sending";
         $campaign->account_id = $account->id;
         $campaign->group_id = $group->id;
         $campaign->message_id = $message->id;
@@ -36,7 +36,7 @@ class CampaignTest extends BaseTest
             "repeat":"never",
             "start_date":"2000-01-01 00:00:00",
             "end_date": "2004-10-23 07:23:47",
-            "status":"seding",
+            "status":"sending",
             "account_id": "$account->id",
             "group_id": "$group->id",
             "message_id": "$message->id",

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Integration\Message;
+namespace Tests\Integration\Messages;
 
 use Ourvoice\Exceptions\ServerException;
 use  Ourvoice\Common\HttpClient;
