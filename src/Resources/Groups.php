@@ -84,13 +84,13 @@ class Groups extends Base
         if($group_id == null) {
             throw new InvalidArgumentException('No group id provided.');
         }
-
+        $contacts = json_encode($contact_ids, \JSON_THROW_ON_ERROR);
         $resourceName = $this->resourceName . ('/'.$group_id .'/contacts/');
         [$responseStatus, , $responseBody] = $this->httpClient->performHttpRequest(
             Common\HttpClient::REQUEST_DELETE,
             $resourceName,
             false,
-            $contact_ids
+            $contacts
         );
         if ($responseStatus === HttpClient::HTTP_NO_CONTENT) {
             return true;

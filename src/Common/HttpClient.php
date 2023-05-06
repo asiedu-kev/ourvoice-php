@@ -20,6 +20,8 @@ class HttpClient
 
     public const HTTP_NO_CONTENT = 204;
 
+    public const HTTP_SUCCESS = 201 || 200;
+
     /**
      * @var string
      */

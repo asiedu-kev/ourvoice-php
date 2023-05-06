@@ -9,10 +9,7 @@ namespace Ourvoice\Objects;
  */
 class BaseList extends Base
 {
-    public $limit;
-    public $offset;
-    public $count;
-    public $totalCount;
+    public $meta;
     public $links = [
         'first' => null,
         'previous' => null,

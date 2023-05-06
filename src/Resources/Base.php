@@ -87,6 +87,7 @@ class Base
         else {
             try {
                 $body = json_decode($body, null, 512, \JSON_THROW_ON_ERROR);
+                var_dump($status);
                 switch ($status){
                     case '201':
                     case '200':
@@ -147,7 +148,7 @@ class Base
                 $object = new $objectName($this->httpClient);
 
                 $message = $object->loadFromArray($item);
-                $baseList->items[] = $message;
+                $baseList->data[] = $message;
             }
 
             return $baseList;
